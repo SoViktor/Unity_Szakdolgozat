@@ -15,7 +15,8 @@ public class Testing : MonoBehaviour
     {
         if (Keyboard.current.tKey.isPressed)
         {
-            unit.GetMoveAction().GetValidGridPositionList();
+            GridSystemVisual.Instance.HideAllGridPosition();
+            GridSystemVisual.Instance.ShowGridPositionList(unit.GetMoveAction().GetValidGridPositionList());
         }
     }
 

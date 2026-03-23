@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class GridSystem
 {
@@ -60,5 +61,22 @@ public class GridSystem
         return gridObjectsArray[gridPosition.x, gridPosition.z];
     }
 
-/*  */
+    public bool IsVaidGridPositiono(GridPosition gridPosition)
+    {
+        return gridPosition.x >= 0 &&
+                gridPosition.z >= 0 && 
+                gridPosition.x < width && 
+                gridPosition.z < length;
+    }
+
+    public int GetWidth()
+    {
+        return width;
+    }
+    public int GetLength()
+    {
+        return length;
+    }
+
+
 }
