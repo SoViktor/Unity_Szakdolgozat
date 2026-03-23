@@ -33,6 +33,10 @@ public class UnitActionSystem : MonoBehaviour
             }
             
         }
+        if (Mouse.current.rightButton.isPressed)
+        {
+            selectedUnit.GetSpinAction().Spin();
+        }
     }
     private bool TryHandelUnitSelection()
     {
