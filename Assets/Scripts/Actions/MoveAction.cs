@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -35,13 +36,15 @@ public class MoveAction : BaseAction
         {
             unitAnimation.SetBool("IsRunning",false);
             isActive = false;
+            onActionComplete();
         }
         transform.forward = Vector3.Lerp(transform.forward, moveDirection, Time.deltaTime * rotationSpeed);
         
     }
 
-    public void Move (GridPosition gridPosition)
+    public void Move (GridPosition gridPosition, Action onMoveComplete)
     {
+        this.onActionComplete = onMoveComplete;
         this.targetPosition = LevelGrid.Instance.GetWorldPosition(gridPosition);
         isActive = true; 
     }
@@ -49,10 +52,10 @@ public class MoveAction : BaseAction
 
 
     public bool IsValidActionGridPosition(GridPosition gridPosition)
-       {
-           List<GridPosition> validGridPosition = GetValidGridPositionList();
-           return validGridPosition.Contains(gridPosition);
-        }
+    {
+        List<GridPosition> validGridPosition = GetValidGridPositionList();
+        return validGridPosition.Contains(gridPosition);
+    }
 
 
     public List<GridPosition> GetValidGridPositionList()
