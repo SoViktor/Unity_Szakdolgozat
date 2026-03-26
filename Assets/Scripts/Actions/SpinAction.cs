@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class SpinAction : BaseAction
@@ -15,11 +16,13 @@ public class SpinAction : BaseAction
         if (totalFloatAmount >= 360)
         {
             isActive = false;
+            onActionComplete();
         }
     }
 
-    public void Spin()
+    public void Spin(Action onActionComplete)
     {
+        this.onActionComplete = onActionComplete;
         isActive = true;
         totalFloatAmount = 0;
     }
