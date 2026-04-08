@@ -1,8 +1,12 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class Unit : MonoBehaviour
 {
+    [SerializeField] private int actionPointsMax;
+    [SerializeField] private bool isEnemy;
+
     private GridPosition gridPosition;
     private MoveAction moveAction;
     private SpinAction spinAction;
@@ -21,6 +25,7 @@ public class Unit : MonoBehaviour
         GridPosition gridPosition = LevelGrid.Instance.GetGridPosition(transform.position);
         LevelGrid.Instance.AddUnitAtGridPosition(gridPosition, this);
         
+        TurnSystem.Instance.OnTurnChanged += TurnSystem_OnTurnChanged;
     }
 
     private void Update()
@@ -92,4 +97,18 @@ public class Unit : MonoBehaviour
         return actionPoints;
     }
 
+    private void TurnSystem_OnTurnChanged(object sender, EventArgs e)
+    {
+        if ((IsEnemy() && !TurnSystem.Instance.IsPlayerTurn()) ||
+        (!IsEnemy() && TurnSystem.Instance.IsPlayerTurn()))
+        {
+            actionPoints = actionPointsMax;
+        }
+        
+    }
+
+    public bool IsEnemy()
+    {
+        return isEnemy;
+    }
 }
