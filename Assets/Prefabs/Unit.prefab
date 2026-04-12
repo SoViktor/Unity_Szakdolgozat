@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5775825020640873216}
   - component: {fileID: 7076665684905611307}
   - component: {fileID: 3924453962338201192}
+  - component: {fileID: 6372913358275944627}
   m_Layer: 7
   m_Name: Unit
   m_TagString: Untagged
@@ -50,6 +51,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Unit
   actionPointsMax: 2
+  isEnemy: 0
 --- !u!65 &5775825020640873216
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -99,6 +101,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70bc2987f91175c458cd0b50be3ea8ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpinAction
+--- !u!114 &6372913358275944627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6031012854187117108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bebc9242b20df814f999e9ccfa085058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SlashAction
 --- !u!1 &8651542739276234416
 GameObject:
   m_ObjectHideFlags: 0

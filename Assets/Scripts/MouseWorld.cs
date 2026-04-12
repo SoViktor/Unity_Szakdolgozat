@@ -8,11 +8,11 @@ public class MouseWorld : MonoBehaviour
     [SerializeField] private LayerMask mousePlaneLayerMask;
     private static MouseWorld instance;
 
-    void Awake()
+    private void Awake()
     {
         instance = this;
     }
-/*     void Update()
+/*  private void Update()
     {
         transform.position = MouseWorld.GetPosition();
     } */

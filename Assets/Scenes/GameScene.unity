@@ -908,6 +908,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UnitSkeletonMage
       objectReference: {fileID: 0}
+    - target: {fileID: 2900546426370770080, guid: 72a93250b04e4b64ba348ffe5208b954, type: 3}
+      propertyPath: actionPointsMax
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

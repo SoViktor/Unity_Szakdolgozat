@@ -10,7 +10,7 @@ public class Unit : MonoBehaviour
     private GridPosition gridPosition;
     private MoveAction moveAction;
     private SpinAction spinAction;
-    private int actionPoints = 2;
+    private int actionPoints;
 
     private BaseAction[] baseActionArray;
 
@@ -26,6 +26,7 @@ public class Unit : MonoBehaviour
         LevelGrid.Instance.AddUnitAtGridPosition(gridPosition, this);
         
         TurnSystem.Instance.OnTurnChanged += TurnSystem_OnTurnChanged;
+        actionPoints = actionPointsMax;
     }
 
     private void Update()
