@@ -32,8 +32,6 @@ public class Unit : MonoBehaviour
     private void Update()
     {
         
-
-
         GridPosition newGridPosition = LevelGrid.Instance.GetGridPosition(transform.position);
         if (newGridPosition != gridPosition)
         {
@@ -56,6 +54,11 @@ public class Unit : MonoBehaviour
     public GridPosition GetGridPosition()
     {
         return gridPosition;
+    }
+
+    public Vector3 GetWorldPosition()
+    {
+        return transform.position;
     }
 
     public BaseAction[] GetBaseActionArray()
@@ -111,5 +114,10 @@ public class Unit : MonoBehaviour
     public bool IsEnemy()
     {
         return isEnemy;
+    }
+
+    public void Damage()
+    {
+        Debug.Log(transform + " hit");
     }
 }

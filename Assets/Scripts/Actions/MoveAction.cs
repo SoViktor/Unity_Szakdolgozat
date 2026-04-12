@@ -35,18 +35,16 @@ public class MoveAction : BaseAction
         } else
         {
             unitAnimation.SetBool("IsRunning",false);
-            isActive = false;
-            onActionComplete();
+            ActionComplete();
         }
         transform.forward = Vector3.Lerp(transform.forward, moveDirection, Time.deltaTime * rotationSpeed);
         
     }
 
-    public override void TakeAction (GridPosition gridPosition, Action onMoveComplete)
+    public override void TakeAction (GridPosition gridPosition, Action onActionComplete)
     {
-        this.onActionComplete = onMoveComplete;
+        ActionStart(onActionComplete);
         this.targetPosition = LevelGrid.Instance.GetWorldPosition(gridPosition);
-        isActive = true; 
     }
 
     public override List<GridPosition> GetValidGridPositionList()
