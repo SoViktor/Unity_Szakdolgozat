@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class MoveAction : BaseAction
 {
-    [SerializeField]private Animator unitAnimation;
+    public event EventHandler OnStartMoveAction;
+    public event EventHandler OnStopMoveAction;
+  
     [SerializeField] private float moveSpeed;
-    [SerializeField] private float rotationSpeed;
     [SerializeField]private int maxMoveDistance =5;
 
 
@@ -19,7 +20,7 @@ public class MoveAction : BaseAction
     }
 
 
-    void Update()
+    private void Update()
     {
         if(!isActive)
         {
@@ -31,12 +32,12 @@ public class MoveAction : BaseAction
         {
         transform.position += moveDirection * Time.deltaTime * moveSpeed;    
             
-        unitAnimation.SetBool("IsRunning",true);
         } else
         {
-            unitAnimation.SetBool("IsRunning",false);
+            OnStopMoveAction?.Invoke(this, EventArgs.Empty);
             ActionComplete();
         }
+        float rotationSpeed = 15;
         transform.forward = Vector3.Lerp(transform.forward, moveDirection, Time.deltaTime * rotationSpeed);
         
     }
@@ -45,6 +46,7 @@ public class MoveAction : BaseAction
     {
         ActionStart(onActionComplete);
         this.targetPosition = LevelGrid.Instance.GetWorldPosition(gridPosition);
+        OnStartMoveAction?.Invoke(this, EventArgs.Empty);
     }
 
     public override List<GridPosition> GetValidGridPositionList()

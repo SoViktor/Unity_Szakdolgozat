@@ -10,6 +10,10 @@ public class SlashAction : BaseAction
         Attack,
         Finished,
     }
+
+    public event EventHandler OnStartSlashAction;
+    public event EventHandler OnStopSlashAction;
+
     private int maxSlashingDistance = 1;
     private State state;
     private float stateTimer;
@@ -66,6 +70,8 @@ public class SlashAction : BaseAction
                 state = State.Finished;
                 float finishedStateTimer = 0.3f;
                 stateTimer = finishedStateTimer;
+                OnStopSlashAction?.Invoke(this, EventArgs.Empty);
+
 
                 break;
             case State.Finished:
@@ -79,6 +85,7 @@ public class SlashAction : BaseAction
 
     private void Attack()
     {
+        OnStartSlashAction?.Invoke(this, EventArgs.Empty);
         targetUnit.Damage();
     }
 

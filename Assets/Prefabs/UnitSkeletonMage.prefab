@@ -588,6 +588,10 @@ PrefabInstance:
       propertyPath: unitAnimation
       value: 
       objectReference: {fileID: 8584411743793543846}
+    - target: {fileID: 7759014127477874583, guid: 6a33452aab7b66b4f9f7c14debf0d714, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 8584411743793543846}
     - target: {fileID: 8055857643410760447, guid: 6a33452aab7b66b4f9f7c14debf0d714, type: 3}
       propertyPath: unitType
       value: 1
