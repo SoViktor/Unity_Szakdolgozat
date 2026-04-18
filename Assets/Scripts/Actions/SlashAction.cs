@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class SlashAction : BaseAction
 {
-<<<<<<< Updated upstream
-=======
-    private enum State
+  private enum State
     {
         Ready,
         Attack,
@@ -14,26 +12,40 @@ public class SlashAction : BaseAction
     }
 
     public event EventHandler OnStartSlashAction;
->>>>>>> Stashed changes
-    private int maxSlashingDistance = 1;
-
-    private float totalFloatAmount;
+  
+    private int maxSlasingDistance = 5;
+    private State state;
+    private float stateTimer;
+    private Unit targetUnit;
+    private bool canSlash;
     private void Update()
     {
         if (!isActive)
         {
             return;
         }
-        float spinAddAmount = 360f * Time.deltaTime;
-        transform.eulerAngles += new Vector3(0,spinAddAmount,0);
-        totalFloatAmount += spinAddAmount;
-        if (totalFloatAmount >= 360)
+        stateTimer -= Time.deltaTime;
+        switch (state)
         {
-            isActive = false;
-            onActionComplete();
+            case State.Ready:
+
+                Vector3 enemyDirection = (targetUnit.GetWorldPosition() - unit.GetWorldPosition()).normalized;
+                float rotationSpeed = 10f; 
+                transform.forward = Vector3.Lerp(transform.forward, enemyDirection, Time.deltaTime * rotationSpeed);
+
+                break;
+            case State.Attack:
+            if (canSlash)
+            {
+                canSlash = false;
+                Attack();
+            }
+
+                break;
+            case State.Finished:
+
+                break;
         }
-<<<<<<< Updated upstream
-=======
 
         if (stateTimer <= 0f)
         {
@@ -58,7 +70,6 @@ public class SlashAction : BaseAction
                 float finishedStateTimer = 0.3f;
                 stateTimer = finishedStateTimer;
 
-
                 break;
             case State.Finished:
 
@@ -72,13 +83,13 @@ public class SlashAction : BaseAction
     private void Attack()
     {
         OnStartSlashAction?.Invoke(this, EventArgs.Empty);
+        
         targetUnit.Damage();
->>>>>>> Stashed changes
     }
 
     public override string GetActionName()
     {
-        return "slash";
+        return "Magic Shoot";
     }
 
     public override List<GridPosition> GetValidGridPositionList()
@@ -87,9 +98,9 @@ public class SlashAction : BaseAction
             List<GridPosition> validGridPositionList = new List<GridPosition>();
             GridPosition unitGridPosition = unit.GetGridPosition();
 
-            for (int x = -maxSlashingDistance; x <= maxSlashingDistance; x++)
+            for (int x = -maxSlasingDistance; x <= maxSlasingDistance; x++)
             {
-                for (int z = -maxSlashingDistance; z <= maxSlashingDistance; z++)
+                for (int z = -maxSlasingDistance; z <= maxSlasingDistance; z++)
                 {
                     GridPosition offetGridPosition = new GridPosition (x,z);
                     GridPosition testGridPosition = unitGridPosition + offetGridPosition;
@@ -107,6 +118,14 @@ public class SlashAction : BaseAction
                         continue;
                     }
 
+
+                    Unit testTargetUnit = LevelGrid.Instance.GetUnitOnGridPosition(testGridPosition);
+                    
+                    if (testTargetUnit.IsEnemy() == unit.IsEnemy())
+                    {
+                        continue;
+                    }
+
                     validGridPositionList.Add(testGridPosition);
                 }
 
@@ -117,9 +136,17 @@ public class SlashAction : BaseAction
 
     public override void TakeAction(GridPosition gridPosition, Action onActionComplete)
     {
-        this.onActionComplete = onActionComplete;
-        isActive = true;
-        totalFloatAmount = 0;
-    }
+        ActionStart(onActionComplete);
+        targetUnit = LevelGrid.Instance.GetUnitOnGridPosition(gridPosition);
 
+        state = State.Ready;
+        float readystateTimer = 1f;
+        stateTimer = readystateTimer;
+
+        canSlash = true;
+        
+        Debug.Log(state);
+
+
+    }
 }
