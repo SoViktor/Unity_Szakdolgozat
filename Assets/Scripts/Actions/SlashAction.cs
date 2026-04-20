@@ -13,7 +13,7 @@ public class SlashAction : BaseAction
 
     public event EventHandler OnStartSlashAction;
   
-    private int maxSlasingDistance = 5;
+    private int maxSlasingDistance = 1;
     private State state;
     private float stateTimer;
     private Unit targetUnit;
@@ -77,14 +77,17 @@ public class SlashAction : BaseAction
 
                 break;
         }
-        Debug.Log(state);
     }
 
     private void Attack()
     {
         OnStartSlashAction?.Invoke(this, EventArgs.Empty);
+        bool isMagical = false;
+        DamageTypes damageType = DamageTypes.Slasing;
+        float attackValue = 20f;
+        float attackStat = unit.GetAttackStat();
         
-        targetUnit.Damage();
+        targetUnit.Damage(isMagical, damageType, attackValue, attackStat);
     }
 
     public override string GetActionName()
@@ -145,8 +148,5 @@ public class SlashAction : BaseAction
 
         canSlash = true;
         
-        Debug.Log(state);
-
-
     }
 }

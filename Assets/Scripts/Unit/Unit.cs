@@ -7,6 +7,7 @@ public class Unit : MonoBehaviour
     [SerializeField] private int actionPointsMax;
     [SerializeField] private bool isEnemy;
 
+    private StatSystem statSystem;
     private GridPosition gridPosition;
     private MoveAction moveAction;
     private SpinAction spinAction;
@@ -19,13 +20,15 @@ public class Unit : MonoBehaviour
         moveAction = GetComponent<MoveAction>();
         spinAction = GetComponent<SpinAction>(); 
         baseActionArray = GetComponents<BaseAction>();
+        statSystem = GetComponent<StatSystem>();
+
     }
     private void Start()
     {
         GridPosition gridPosition = LevelGrid.Instance.GetGridPosition(transform.position);
-        LevelGrid.Instance.AddUnitAtGridPosition(gridPosition, this);
         
         TurnSystem.Instance.OnTurnChanged += TurnSystem_OnTurnChanged;
+        statSystem.OnDeath += StatSystem_OnDeath;
         actionPoints = actionPointsMax;
     }
 
@@ -118,8 +121,32 @@ public class Unit : MonoBehaviour
         return isEnemy;
     }
 
-    public void Damage()
+    public void Damage(bool isMagical, DamageTypes damageType, float damageValue, float attackStat)
     {
-        Debug.Log("hit");
+        statSystem.Damage(isMagical, damageType, damageValue,attackStat );
     }
+
+    public float GetAttackStat()
+    {
+        return statSystem.GetAttack();
+    }
+
+    public float GetMagicAttackStat()
+    {
+        return statSystem.GetMagicAttack();
+    }
+
+    public int GetMoveDistanceStat()
+    {
+        return statSystem.GetMoveDistance();
+    }
+
+    private void StatSystem_OnDeath(object sender, EventArgs e)
+    {
+        LevelGrid.Instance.RemoveUnitAtGridPosition(gridPosition, this);
+
+
+        Destroy(gameObject);
+    }
+
 }

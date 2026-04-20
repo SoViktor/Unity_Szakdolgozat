@@ -513,6 +513,11 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 113663303300031433, guid: 25871f0e0039b9f4ea25f369273d4b09, type: 3}
   m_PrefabInstance: {fileID: 4589085171511785285}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &6626759600886734909 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7230896547968030584, guid: 25871f0e0039b9f4ea25f369273d4b09, type: 3}
+  m_PrefabInstance: {fileID: 4589085171511785285}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6869269165301996900 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6988248857270708769, guid: 25871f0e0039b9f4ea25f369273d4b09, type: 3}
@@ -590,6 +595,14 @@ PrefabInstance:
       propertyPath: unitType
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 8091376678976239172, guid: 6a33452aab7b66b4f9f7c14debf0d714, type: 3}
+      propertyPath: ragdollPrefab
+      value: 
+      objectReference: {fileID: 4449138609444362667, guid: cb89e904fb299a04a824b322d69d01a2, type: 3}
+    - target: {fileID: 8091376678976239172, guid: 6a33452aab7b66b4f9f7c14debf0d714, type: 3}
+      propertyPath: unitRootSkeleton
+      value: 
+      objectReference: {fileID: 6626759600886734909}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 7943077174989034468, guid: 6a33452aab7b66b4f9f7c14debf0d714, type: 3}

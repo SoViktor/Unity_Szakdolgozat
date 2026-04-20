@@ -82,14 +82,18 @@ public class MagicShootAction : BaseAction
 
                 break;
         }
-        Debug.Log(state);
     }
 
     private void Attack()
     {
         OnStartMagicShootAction?.Invoke(this, new OnStartMagicShootActionArgs{targetUnit =targetUnit, attackingUnit = unit});
         
-        targetUnit.Damage();
+        bool isMagical = true;
+        DamageTypes damageType = DamageTypes.Blight;
+        float attackValue = 20f;
+        float attackStat = unit.GetMagicAttackStat();
+
+        targetUnit.Damage(isMagical, damageType, attackValue, attackStat);
     }
 
     public override string GetActionName()
@@ -155,8 +159,5 @@ public class MagicShootAction : BaseAction
 
         canMagicShoot = true;
         
-        Debug.Log(state);
-
-
     }
 }

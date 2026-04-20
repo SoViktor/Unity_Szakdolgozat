@@ -44,6 +44,7 @@ public class LevelGrid : MonoBehaviour
     {
         RemoveUnitAtGridPosition(fromGridPosition, unit);
 
+
         AddUnitAtGridPosition(toGridPosition,unit);
     }
     public GridPosition GetGridPosition(Vector3 worldPosition)

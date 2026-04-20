@@ -6,7 +6,6 @@ public class MoveAction : BaseAction
 {
     [SerializeField] private float moveSpeed;
     [SerializeField] private float rotationSpeed;
-    [SerializeField]private int maxMoveDistance =5;
 
     public event EventHandler OnStartMoveAction;
     public event EventHandler OnStopMoveAction;
@@ -53,6 +52,8 @@ public class MoveAction : BaseAction
         {
             List<GridPosition> validGridPositionList = new List<GridPosition>();
             GridPosition unitGridPosition = unit.GetGridPosition();
+
+            int maxMoveDistance = unit.GetMoveDistanceStat();
 
             for (int x = -maxMoveDistance; x <= maxMoveDistance; x++)
             {
