@@ -65,14 +65,14 @@ public class MagicShootAction : BaseAction
             case State.Ready:
 
                 state = State.Attack;
-                float attackStateTimer = 0.2f;
+                float attackStateTimer = 0.5f;
                 stateTimer = attackStateTimer;
 
                 break;
             case State.Attack:
 
                 state = State.Finished;
-                float finishedStateTimer = 0.3f;
+                float finishedStateTimer = 1f;
                 stateTimer = finishedStateTimer;
 
                 break;
@@ -150,7 +150,7 @@ public class MagicShootAction : BaseAction
         targetUnit = LevelGrid.Instance.GetUnitOnGridPosition(gridPosition);
 
         state = State.Ready;
-        float readystateTimer = 1f;
+        float readystateTimer = 0.5f;
         stateTimer = readystateTimer;
 
         canMagicShoot = true;

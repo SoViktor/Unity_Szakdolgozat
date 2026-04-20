@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8764267190417912171
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8793136505694177933}
+  m_Layer: 7
+  m_Name: MagicStartPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8793136505694177933
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8764267190417912171}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.553, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2736761649599596246}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &4589085171511785285
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23,7 +54,7 @@ PrefabInstance:
     - target: {fileID: 113663303300031433, guid: 25871f0e0039b9f4ea25f369273d4b09, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: fd7a66e386710a447a678f18a41257ee, type: 2}
+      objectReference: {fileID: 9100000, guid: 89d2793edcad8414e832c17a05d195ef, type: 2}
     - target: {fileID: 127765860386314405, guid: 25871f0e0039b9f4ea25f369273d4b09, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -466,9 +497,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 1897522453273588115, guid: 25871f0e0039b9f4ea25f369273d4b09, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8793136505694177933}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25871f0e0039b9f4ea25f369273d4b09, type: 3}
+--- !u!4 &2736761649599596246 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1897522453273588115, guid: 25871f0e0039b9f4ea25f369273d4b09, type: 3}
+  m_PrefabInstance: {fileID: 4589085171511785285}
+  m_PrefabAsset: {fileID: 0}
 --- !u!95 &4484569874211460236 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 113663303300031433, guid: 25871f0e0039b9f4ea25f369273d4b09, type: 3}
@@ -487,6 +526,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2430686426667159005, guid: 6a33452aab7b66b4f9f7c14debf0d714, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 4484569874211460236}
+    - target: {fileID: 2430686426667159005, guid: 6a33452aab7b66b4f9f7c14debf0d714, type: 3}
+      propertyPath: magicRayStartPoint
+      value: 
+      objectReference: {fileID: 8793136505694177933}
     - target: {fileID: 4924159686163281811, guid: 6a33452aab7b66b4f9f7c14debf0d714, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6

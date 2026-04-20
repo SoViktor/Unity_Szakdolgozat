@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5553724970305087672
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5538221634761119962}
+  m_Layer: 7
+  m_Name: MagicStartPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5538221634761119962
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5553724970305087672}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.9223, y: 1.5618, z: 0.849}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 559904345012685231}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &3291318988697593424
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -494,12 +525,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 3055748592242044927, guid: a8d9674eb2fcd244ea544c2c80a68870, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5538221634761119962}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a8d9674eb2fcd244ea544c2c80a68870, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8584411743793543846}
   m_SourcePrefab: {fileID: 100100000, guid: a8d9674eb2fcd244ea544c2c80a68870, type: 3}
+--- !u!4 &559904345012685231 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3055748592242044927, guid: a8d9674eb2fcd244ea544c2c80a68870, type: 3}
+  m_PrefabInstance: {fileID: 3291318988697593424}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2408428541447002881 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a8d9674eb2fcd244ea544c2c80a68870, type: 3}
@@ -515,7 +554,7 @@ Animator:
   m_GameObject: {fileID: 2408428541447002881}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 5b428ac4870d5aa43a515ec52454e895, type: 3}
-  m_Controller: {fileID: 9100000, guid: fd7a66e386710a447a678f18a41257ee, type: 2}
+  m_Controller: {fileID: 9100000, guid: 89d2793edcad8414e832c17a05d195ef, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -540,6 +579,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2430686426667159005, guid: 6a33452aab7b66b4f9f7c14debf0d714, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 8584411743793543846}
+    - target: {fileID: 2430686426667159005, guid: 6a33452aab7b66b4f9f7c14debf0d714, type: 3}
+      propertyPath: magicRayStartPoint
+      value: 
+      objectReference: {fileID: 5538221634761119962}
     - target: {fileID: 4924159686163281811, guid: 6a33452aab7b66b4f9f7c14debf0d714, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

@@ -89,7 +89,7 @@ public class SlashAction : BaseAction
 
     public override string GetActionName()
     {
-        return "Magic Shoot";
+        return "Slash";
     }
 
     public override List<GridPosition> GetValidGridPositionList()
