@@ -134,6 +134,7 @@ public class Unit : MonoBehaviour
         return statSystem.GetMoveDistance();
     }
 
+
     private void StatSystem_OnDeath(object sender, EventArgs e)
     {
         LevelGrid.Instance.RemoveUnitAtGridPosition(gridPosition, this);

@@ -22,7 +22,6 @@ public abstract class AttackAction : BaseAction
     protected bool canAttack;
     protected Unit targetUnit;
 
-
     protected void Update()
     {
         if (!isActive)
@@ -160,7 +159,6 @@ public abstract class AttackAction : BaseAction
             attackStat = unit.GetMagicAttackStat();
         }
     }
-
 
 
 }

@@ -25,11 +25,7 @@ public class MagicShootAction : AttackAction
     protected override void Attack()
     {
         OnStartMagicShootAction?.Invoke(this, new OnStartMagicShootActionArgs{targetUnit =targetUnit, attackingUnit = unit});
-        
-        bool isMagical = true;
-        DamageTypes damageType = DamageTypes.Blight;
-        float attackValue = 20f;
-        float attackStat = unit.GetMagicAttackStat();
+        SetAttackStat();
 
         targetUnit.Damage(isMagical, damageType, attackValue, attackStat);
     }

@@ -6,7 +6,7 @@ public class SlashAction : AttackAction
 {
     protected override int maxAttackDistance => 1;
 
-    protected override DamageTypes damageType => DamageTypes.Slasing;
+    protected override DamageTypes damageType => DamageTypes.Steel;
 
     protected override bool isMagical => false;
 
@@ -19,6 +19,7 @@ public class SlashAction : AttackAction
     protected override void Attack()
     {
         OnStartSlashAction?.Invoke(this, EventArgs.Empty);
+        SetAttackStat();
         
         targetUnit.Damage(isMagical, damageType, attackValue, attackStat);
     }

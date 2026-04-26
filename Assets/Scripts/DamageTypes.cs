@@ -1,10 +1,14 @@
 public enum DamageTypes
 {
-    Slasing,
-    Piercing,
-    Bludgeoning,
+    Steel,
+    Plant,
     Fire,
     Ice,
     Blight,
-    Light 
+    Light,
+    Lightning,
+    Water,
+    Earth,
+    Darkness
+
 }

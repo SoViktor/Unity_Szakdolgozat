@@ -144,7 +144,6 @@ GameObject:
   - component: {fileID: 8055857643410760447}
   - component: {fileID: 5775825020640873216}
   - component: {fileID: 7076665684905611307}
-  - component: {fileID: 3924453962338201192}
   - component: {fileID: 6372913358275944627}
   - component: {fileID: 2430686426667159005}
   - component: {fileID: 1985647990510708375}
@@ -223,18 +222,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MoveAction
   moveSpeed: 7
   rotationSpeed: 10
---- !u!114 &3924453962338201192
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6031012854187117108}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70bc2987f91175c458cd0b50be3ea8ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SpinAction
 --- !u!114 &6372913358275944627
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -274,6 +261,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5397d89bb30e4ac44b258d9439b46f88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StatSystem
+  unitType: 0
   baseHealthPoints: 100
   baseDefence: 100
   baseMagicDefence: 100
@@ -281,8 +269,6 @@ MonoBehaviour:
   baseMagicAttack: 100
   baseDexterity: 100
   baseMoveDistance: 5
-  weeknes: 00000000
-  resistens: 05000000
 --- !u!114 &8091376678976239172
 MonoBehaviour:
   m_ObjectHideFlags: 0

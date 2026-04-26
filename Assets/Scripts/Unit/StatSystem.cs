@@ -6,23 +6,23 @@ public class StatSystem : MonoBehaviour
 {
     public event EventHandler OnDeath;
 
-    [SerializeField] private float baseHealthPoints;
+    [SerializeField] private DamageTypes unitType;
+    [SerializeField] private int baseHealthPoints;
     [SerializeField] private float baseDefence;
     [SerializeField] private float baseMagicDefence;
     [SerializeField] private float baseAttack;
     [SerializeField] private float baseMagicAttack;
     [SerializeField] private float baseDexterity;
     [SerializeField] private int baseMoveDistance;
-    [SerializeField] private DamageTypes [] weeknes;
-    [SerializeField] private DamageTypes [] resistens;
 
-    private float healthPoints;
+    private int healthPoints;
     private float defence;
     private float magicDefence;
     private float attack;
     private float magicAttack;
     private float dexterity;
     private int moveDistance;
+
 
     private void Start()
     {
@@ -33,38 +33,33 @@ public class StatSystem : MonoBehaviour
         magicAttack = baseMagicAttack;
         dexterity = baseDexterity;
         moveDistance = baseMoveDistance;
+
     }
 
     public void Damage(bool isMagical, DamageTypes damageType, float damageValue, float attackStat)
     {
-        float damageDelt;
-        foreach (DamageTypes damageTypes in weeknes)
-        {
-            if (damageTypes == damageType)
-            {
-                damageValue *=2;
-            }
-        }
+        TypeSystem typeSystem = new TypeSystem();
+        float multiplier = typeSystem.GetMultiplier(damageType, unitType);
+        damageValue *= multiplier;
 
-        foreach (DamageTypes damageTypes in resistens)
-        {
-            if (damageTypes == damageType)
-            {
-                damageValue /=2;
-            }
-        }
+        float random = UnityEngine.Random.Range(0.9f, 1.1f);
+        damageValue *= random;
+
+        Debug.Log(random);
+
+        float damageDealt;
 
         if (isMagical)
         {
-            damageDelt = attackStat / magicDefence * damageValue;
+            damageDealt = attackStat / magicDefence * damageValue;
         } 
         else
         {
-            damageDelt = attackStat / defence * damageValue;    
+            damageDealt = attackStat / defence * damageValue;    
         }
 
 
-        healthPoints -= damageDelt;
+        healthPoints -= Mathf.RoundToInt(damageDealt);
 
         if (healthPoints <= 0)
         {
@@ -80,7 +75,7 @@ public class StatSystem : MonoBehaviour
         OnDeath?.Invoke(this, EventArgs.Empty);
     }
 
-    public float GetHelthPoints()
+    public int GetHelthPoints()
     {
         return healthPoints;
     }
