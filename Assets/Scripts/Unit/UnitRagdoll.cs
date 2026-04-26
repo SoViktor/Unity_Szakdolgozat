@@ -12,16 +12,13 @@ public class UnitRagdoll : MonoBehaviour
 
     private void MatchAllTransforms(Transform original, Transform copy)
     {
-        foreach (Transform child in original)
-        {
-            Transform copyChild = copy.Find(child.name);
-            if (copyChild != null)
-            {
-                copyChild.position = child.position;
-                copyChild.rotation = child.rotation;
+        copy.localPosition = original.localPosition;
+        copy.localRotation = original.localRotation;
+        copy.localScale = original.localScale;
 
-                MatchAllTransforms(child,copyChild);
-            }
+        for (int i = 0; i < original.childCount; i++)
+        {
+            MatchAllTransforms(original.GetChild(i), copy.GetChild(i));
         }
     }
 }
