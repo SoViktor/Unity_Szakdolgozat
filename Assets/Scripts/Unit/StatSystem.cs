@@ -23,8 +23,12 @@ public class StatSystem : MonoBehaviour
     private float dexterity;
     private int moveDistance;
 
+    private int baseActionValue;
+    private int actionValue;
+    private float baseRandom;
 
-    private void Start()
+
+    private void Awake()
     {
         healthPoints = baseHealthPoints;
         defence = baseDefence;
@@ -33,6 +37,8 @@ public class StatSystem : MonoBehaviour
         magicAttack = baseMagicAttack;
         dexterity = baseDexterity;
         moveDistance = baseMoveDistance;
+        baseRandom = UnityEngine.Random.value;
+        BaseActionValueSetUp();
 
     }
 
@@ -46,6 +52,14 @@ public class StatSystem : MonoBehaviour
         damageValue *= random;
 
         Debug.Log(random);
+
+        float critRandom = UnityEngine.Random.value;
+        float critChance = 0.1f;
+        float critDamage = 2f;
+        if (critRandom <= critChance)
+        {
+            damageValue *= critDamage;
+        }
 
         float damageDealt;
 
@@ -102,6 +116,36 @@ public class StatSystem : MonoBehaviour
     public int GetMoveDistance()
     {
         return moveDistance;
+    }
+
+    public float GetBaseRandom()
+    {
+        return baseRandom;
+    }
+
+    public int GetActionValue()
+    {
+        return actionValue;
+    }
+    public int GetBaseActionValue()
+    {
+        return baseActionValue;
+    }
+
+    public void BaseActionValueSetUp()
+    {
+        baseActionValue = Mathf.RoundToInt((100 / dexterity) * 100);
+        actionValue = baseActionValue;
+    }
+
+    public void DecreaseActionValue(int amount)
+    {
+        actionValue -= amount;
+    }
+
+    public void ResetActionValue()
+    {
+        actionValue = baseActionValue;
     }
 
 }

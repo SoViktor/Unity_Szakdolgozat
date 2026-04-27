@@ -44,13 +44,12 @@ public class UnitActionSystem : MonoBehaviour
         {
             return;
         }
-
-        if(EventSystem.current.IsPointerOverGameObject())
+        if (selectedUnit != TurnSystem.Instance.GetActiveUnit())
         {
             return;
         }
 
-        if (TryHandelUnitSelection())
+        if(EventSystem.current.IsPointerOverGameObject())
         {
             return;
         }
@@ -92,34 +91,8 @@ public class UnitActionSystem : MonoBehaviour
 
     }
     
-    private bool TryHandelUnitSelection()
-    {
-        if (Mouse.current.leftButton.IsPressed())
-        {
-            Ray ray =  Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue() );
-            if (Physics.Raycast(ray, out RaycastHit raycastHit, float.MaxValue, unitLayerMask))
-            {
-                if(raycastHit.transform.TryGetComponent<Unit>(out Unit unit))
-                {
-                    if (unit == selectedUnit)
-                    {
-                        return false;
-                    }
 
-                    if (unit.IsEnemy())
-                    {
-                        return false;
-                    }
-                    SetSelectedUnit(unit);
-                    return true;
-                }
-            } 
-        }
-
-        return false;
-    }
-
-    private void SetSelectedUnit(Unit unit)
+    public void SetSelectedUnit(Unit unit)
     {
         selectedUnit = unit;
         SetSelectedAction(unit.GetMoveAction());

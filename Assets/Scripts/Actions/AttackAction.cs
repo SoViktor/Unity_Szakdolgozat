@@ -150,13 +150,14 @@ public abstract class AttackAction : BaseAction
 
     protected void SetAttackStat()
     {
+        StatSystem statSystem = unit.GetStatSystem();
         if (isMagical)
         {
-            attackStat = unit.GetAttackStat();
+            attackStat = statSystem.GetAttack();
         }
         else
         {
-            attackStat = unit.GetMagicAttackStat();
+            attackStat = statSystem.GetMagicAttack();
         }
     }
 

@@ -17,6 +17,17 @@ public class EnemyAI : MonoBehaviour
         {
             return;
         }
+        Unit activeUnit = TurnSystem.Instance.GetActiveUnit();
+
+        if (activeUnit == null)
+        {
+            return;
+        }
+
+        if (!activeUnit.IsEnemy())
+        {
+            return;
+        }
 
         timer -= Time.deltaTime;
         if (timer <= 0f)

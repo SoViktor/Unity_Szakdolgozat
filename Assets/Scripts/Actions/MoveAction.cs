@@ -52,8 +52,9 @@ public class MoveAction : BaseAction
         {
             List<GridPosition> validGridPositionList = new List<GridPosition>();
             GridPosition unitGridPosition = unit.GetGridPosition();
+            StatSystem statSystem = unit.GetStatSystem();
 
-            int maxMoveDistance = unit.GetMoveDistanceStat();
+            int maxMoveDistance = statSystem.GetMoveDistance();
 
             for (int x = -maxMoveDistance; x <= maxMoveDistance; x++)
             {

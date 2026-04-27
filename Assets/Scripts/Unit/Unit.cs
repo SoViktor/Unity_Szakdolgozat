@@ -25,16 +25,12 @@ public class Unit : MonoBehaviour
     {
         GridPosition gridPosition = LevelGrid.Instance.GetGridPosition(transform.position);
         
-        TurnSystem.Instance.OnTurnChanged += TurnSystem_OnTurnChanged;
         statSystem.OnDeath += StatSystem_OnDeath;
         actionPoints = actionPointsMax;
     }
 
     private void Update()
     {
-        
-
-
         GridPosition newGridPosition = LevelGrid.Instance.GetGridPosition(transform.position);
         if (newGridPosition != gridPosition)
         {
@@ -62,6 +58,11 @@ public class Unit : MonoBehaviour
     public BaseAction[] GetBaseActionArray()
     {
         return baseActionArray;
+    }
+
+    public StatSystem GetStatSystem()
+    {
+        return statSystem;
     }
 
     public bool TryTakeActionPointFofAction(BaseAction baseAction)
@@ -99,14 +100,9 @@ public class Unit : MonoBehaviour
         return actionPoints;
     }
 
-    private void TurnSystem_OnTurnChanged(object sender, EventArgs e)
+    public void ResetActionPoints()
     {
-        if ((IsEnemy() && !TurnSystem.Instance.IsPlayerTurn()) ||
-        (!IsEnemy() && TurnSystem.Instance.IsPlayerTurn()))
-        {
-            actionPoints = actionPointsMax;
-        }
-        
+        actionPoints = actionPointsMax;
     }
 
     public bool IsEnemy()
@@ -118,22 +114,7 @@ public class Unit : MonoBehaviour
     {
         statSystem.Damage(isMagical, damageType, damageValue,attackStat );
     }
-
-    public float GetAttackStat()
-    {
-        return statSystem.GetAttack();
-    }
-
-    public float GetMagicAttackStat()
-    {
-        return statSystem.GetMagicAttack();
-    }
-
-    public int GetMoveDistanceStat()
-    {
-        return statSystem.GetMoveDistance();
-    }
-
+ 
 
     private void StatSystem_OnDeath(object sender, EventArgs e)
     {
@@ -142,5 +123,6 @@ public class Unit : MonoBehaviour
 
         Destroy(gameObject);
     }
+
 
 }
