@@ -10,6 +10,9 @@ public class TurnSystem : MonoBehaviour
     public event EventHandler OnTurnChanged;
     private int turnNumber = 1;
 
+    private int actionValuePerTurn = 100;
+    private int actionValueUntilNextTurn = 100;
+
 
     private List<Unit> unitList;
     private Unit activeUnit;
@@ -65,12 +68,25 @@ public class TurnSystem : MonoBehaviour
         {
             item.GetStatSystem().DecreaseActionValue(lowestActionValue);
         }
+
+        if (actionValueUntilNextTurn > lowestActionValue)
+        {
+            actionValueUntilNextTurn -= lowestActionValue;
+        }
+        else
+        {
+            while (actionValueUntilNextTurn < lowestActionValue)
+            {
+                turnNumber++;
+                actionValueUntilNextTurn += actionValuePerTurn;
+            }
+            actionValueUntilNextTurn -= lowestActionValue;
+        }
         activeUnit = nextUnit;
         activeUnit.ResetActionPoints();
 
         UnitActionSystem.Instance.SetSelectedUnit(activeUnit);
 
-        turnNumber++;
         OnTurnChanged?.Invoke(this, EventArgs.Empty);
     }
 

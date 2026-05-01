@@ -89,7 +89,12 @@ public class StatSystem : MonoBehaviour
         OnDeath?.Invoke(this, EventArgs.Empty);
     }
 
-    public int GetHelthPoints()
+    public int GetBaseHealthPoints()
+    {
+        return baseHealthPoints;
+    }
+
+    public int GetHealthPoints()
     {
         return healthPoints;
     }
