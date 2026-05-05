@@ -96,8 +96,8 @@ public abstract class AttackAction : BaseAction
         {
             for (int z = -maxAttackDistance; z <= maxAttackDistance; z++)
             {
-                GridPosition offetGridPosition = new GridPosition (x,z);
-                GridPosition testGridPosition = unitGridPosition + offetGridPosition;
+                GridPosition offsetGridPosition = new GridPosition (x,z);
+                GridPosition testGridPosition = unitGridPosition + offsetGridPosition;
 
                 if(!LevelGrid.Instance.IsValidPosition(testGridPosition))
                 {
@@ -153,12 +153,22 @@ public abstract class AttackAction : BaseAction
         StatSystem statSystem = unit.GetStatSystem();
         if (isMagical)
         {
-            attackStat = statSystem.GetAttack();
+            attackStat = statSystem.GetMagicAttack();
         }
         else
         {
-            attackStat = statSystem.GetMagicAttack();
+            attackStat = statSystem.GetAttack();
         }
+    }
+
+    public int GetMaxAttackDistance()
+    {
+        return maxAttackDistance;
+    } 
+
+    public bool GetIsAttackCirculiar()
+    {
+        return isAttackCirculiar;
     }
 
 

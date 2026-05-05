@@ -72,6 +72,7 @@ public class StatSystem : MonoBehaviour
             damageDealt = attackStat / defence * damageValue;    
         }
 
+        Debug.Log(attackStat);
 
         healthPoints -= Mathf.RoundToInt(damageDealt);
 

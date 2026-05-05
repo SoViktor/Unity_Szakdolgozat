@@ -119,17 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &136793146 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8055857643410760447, guid: 6a33452aab7b66b4f9f7c14debf0d714, type: 3}
-  m_PrefabInstance: {fileID: 3092561522628897936}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ff0de0678f7cf541a3b7c779bb92895, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Unit
 --- !u!1 &179455746
 GameObject:
   m_ObjectHideFlags: 0
@@ -221,8 +210,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1985647990510708375, guid: 6a33452aab7b66b4f9f7c14debf0d714, type: 3}
+      propertyPath: baseAttack
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 1985647990510708375, guid: 6a33452aab7b66b4f9f7c14debf0d714, type: 3}
       propertyPath: baseDexterity
-      value: 95
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 1985647990510708375, guid: 6a33452aab7b66b4f9f7c14debf0d714, type: 3}
+      propertyPath: baseMagicAttack
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4924159686163281811, guid: 6a33452aab7b66b4f9f7c14debf0d714, type: 3}
       propertyPath: m_LocalPosition.x
@@ -757,6 +754,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GridSystemVisual
   gridSystemVisualSingleGrid: {fileID: 4377721785655977511, guid: 82cf1135bf8aaa64da27384d1010e576, type: 3}
+  gridVisualVariantsMaterialList:
+  - gridVisualVariant: 0
+    material: {fileID: 2100000, guid: 61a91cf7e2e35b1469031893f3b288aa, type: 2}
+  - gridVisualVariant: 1
+    material: {fileID: 2100000, guid: e22f14bc485e456458acb83ae5715511, type: 2}
+  - gridVisualVariant: 2
+    material: {fileID: 2100000, guid: 0d946025bed74e84497dfac3c1b297e3, type: 2}
+  - gridVisualVariant: 3
+    material: {fileID: 2100000, guid: 188a172a737146c4abc22e454c3ae71d, type: 2}
+  - gridVisualVariant: 4
+    material: {fileID: 2100000, guid: 0e776320406cfe64dbe73b8ff7b1886f, type: 2}
+  - gridVisualVariant: 5
+    material: {fileID: 2100000, guid: 903ecc55b0dedf24bbf421373a84bbde, type: 2}
+  - gridVisualVariant: 6
+    material: {fileID: 2100000, guid: 8b960eabb8e0f9a4f93c5a37217c0cf9, type: 2}
 --- !u!4 &583206719
 Transform:
   m_ObjectHideFlags: 0
@@ -929,51 +941,6 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 832575517}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &879735307
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 879735309}
-  - component: {fileID: 879735308}
-  m_Layer: 0
-  m_Name: Testing
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &879735308
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 879735307}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 668dbd97fd422a445b2cb7be294724d5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Testing
-  unit: {fileID: 136793146}
---- !u!4 &879735309
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 879735307}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -3226,7 +3193,6 @@ SceneRoots:
   - {fileID: 1521040631}
   - {fileID: 2117303157}
   - {fileID: 179455748}
-  - {fileID: 879735309}
   - {fileID: 455939556}
   - {fileID: 1988526522}
   - {fileID: 583206719}

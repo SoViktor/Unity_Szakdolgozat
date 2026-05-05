@@ -1,3 +1,4 @@
+using System;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,11 +9,15 @@ public class UnitHealthBarUI : MonoBehaviour
     [SerializeField] private Image fillImage;
 
     private Camera mainCamera;
+    private StatSystem statSystem;
 
     private void Awake()
     {
         mainCamera = Camera.main;
+
     }
+
+
 
 
     private void LateUpdate()
@@ -31,4 +36,5 @@ public class UnitHealthBarUI : MonoBehaviour
         fillImage.fillAmount = Mathf.Clamp01(ratio);
         transform.forward = mainCamera.transform.forward;
     }
+
 }
