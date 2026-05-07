@@ -8,14 +8,16 @@ public class TurnSystem : MonoBehaviour
     public static TurnSystem Instance {get; private set;}
 
     public event EventHandler OnTurnChanged;
+    public event EventHandler OnAnyTeamWin;
     private int turnNumber = 1;
 
     private int actionValuePerTurn = 100;
     private int actionValueUntilNextTurn = 100;
 
-
-    private List<Unit> unitList;
+    private List<Unit> unitList = new List<Unit>();
     private Unit activeUnit;
+
+    private bool hasPlayerWon;
 
     private void Awake()
     {
@@ -29,7 +31,6 @@ public class TurnSystem : MonoBehaviour
     }
     private void Start()
     {
-        unitList = new List<Unit>();
         GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("Unit");
 
         foreach (GameObject item in gameObjects)
@@ -42,6 +43,7 @@ public class TurnSystem : MonoBehaviour
         }
 
         FindNextActiveUnit();
+        Unit.OnAnyUnitDied += Unit_OnAnyUnitDied;
     }
     public void Nextturn()
     {
@@ -90,12 +92,19 @@ public class TurnSystem : MonoBehaviour
         OnTurnChanged?.Invoke(this, EventArgs.Empty);
     }
 
+    private void ReorderUnitList()
+    {
+        unitList = unitList
+        .Where(unit => unit != null)
+        .OrderBy(unit => unit.GetStatSystem().GetActionValue())
+        .ThenBy(unit => unit.GetStatSystem().GetBaseRandom())
+        .ToList();
+    }
+
     private Unit GetUnitWithLowestActionValue()
     {
-        return unitList
-            .OrderBy(unit => unit.GetStatSystem().GetActionValue())
-            .ThenBy(unit => unit.GetStatSystem().GetBaseRandom())
-            .First();
+        ReorderUnitList();
+        return unitList.First();
     }
 
     public Unit GetActiveUnit()
@@ -119,9 +128,53 @@ public class TurnSystem : MonoBehaviour
         return !activeUnit.IsEnemy();
     }
 
-    public List<Unit> GetUnitList()
+    public List<Unit> GetTurnOrderList()
     {
+        ReorderUnitList();
         return unitList;
+    }
+
+private void Unit_OnAnyUnitDied(object sender, EventArgs e)
+{
+    Unit deadUnit = sender as Unit;
+
+    if (deadUnit != null)
+    {
+        unitList.Remove(deadUnit);
+    }
+
+    bool hasEnemyAnyMember = false;
+    bool hasPlayerAnyMember = false;
+
+    foreach (Unit item in unitList)
+    {
+        if (item == null)
+        {
+            continue;
+        }
+
+        if (item.IsEnemy())
+        {
+            hasEnemyAnyMember = true;
+        }
+        else
+        {
+            hasPlayerAnyMember = true;
+        }
+    }
+
+    if (hasEnemyAnyMember && hasPlayerAnyMember)
+    {
+        return;
+    }
+
+    hasPlayerWon = hasPlayerAnyMember;
+    OnAnyTeamWin?.Invoke(this, EventArgs.Empty);
+}
+
+    public bool DidPlayerWin()
+    {
+        return hasPlayerWon;
     }
 
 }

@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 
 public class Unit : MonoBehaviour
 {
+    public static event EventHandler OnAnyUnitDied;
     [SerializeField] private int actionPointsMax;
     [SerializeField] private bool isEnemy;
 
@@ -121,6 +122,7 @@ public class Unit : MonoBehaviour
     private void StatSystem_OnDeath(object sender, EventArgs e)
     {
         LevelGrid.Instance.RemoveUnitAtGridPosition(gridPosition, this);
+        OnAnyUnitDied?.Invoke(this, EventArgs.Empty);
 
 
         Destroy(gameObject);

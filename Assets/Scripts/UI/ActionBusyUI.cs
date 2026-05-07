@@ -7,9 +7,7 @@ public class ActionBusyUI : MonoBehaviour
         UnitActionSystem.Instance.OnBusyChanged += UnitActionSystem_OnBusyChanged;
 
         Hide();
-
     }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Show()
     {
         gameObject.SetActive(true);
