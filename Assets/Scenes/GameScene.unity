@@ -211,11 +211,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1985647990510708375, guid: 6a33452aab7b66b4f9f7c14debf0d714, type: 3}
       propertyPath: baseAttack
-      value: 1200
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 1985647990510708375, guid: 6a33452aab7b66b4f9f7c14debf0d714, type: 3}
       propertyPath: baseDexterity
-      value: 300
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 1985647990510708375, guid: 6a33452aab7b66b4f9f7c14debf0d714, type: 3}
       propertyPath: baseMagicAttack
@@ -721,8 +721,20 @@ PrefabInstance:
       value: UnitSkeletonArcher
       objectReference: {fileID: 0}
     - target: {fileID: 8841816509407129982, guid: 57937e54f44a524408e5125f92c362cc, type: 3}
+      propertyPath: baseAttack
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 8841816509407129982, guid: 57937e54f44a524408e5125f92c362cc, type: 3}
+      propertyPath: baseDefence
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 8841816509407129982, guid: 57937e54f44a524408e5125f92c362cc, type: 3}
       propertyPath: baseDexterity
       value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 8841816509407129982, guid: 57937e54f44a524408e5125f92c362cc, type: 3}
+      propertyPath: baseMagicDefence
+      value: 80
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -897,8 +909,28 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7090586147989768367, guid: cdf1a2ee469a8674083c7b0ff5cc987e, type: 3}
+      propertyPath: baseAttack
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 7090586147989768367, guid: cdf1a2ee469a8674083c7b0ff5cc987e, type: 3}
+      propertyPath: baseDefence
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 7090586147989768367, guid: cdf1a2ee469a8674083c7b0ff5cc987e, type: 3}
       propertyPath: baseDexterity
       value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 7090586147989768367, guid: cdf1a2ee469a8674083c7b0ff5cc987e, type: 3}
+      propertyPath: baseMagicAttack
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 7090586147989768367, guid: cdf1a2ee469a8674083c7b0ff5cc987e, type: 3}
+      propertyPath: baseHealthPoints
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 7090586147989768367, guid: cdf1a2ee469a8674083c7b0ff5cc987e, type: 3}
+      propertyPath: baseMagicDefence
+      value: 120
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

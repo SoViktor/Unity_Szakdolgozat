@@ -593,6 +593,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8584411743793543846}
     - target: {fileID: 2430686426667159005, guid: 6a33452aab7b66b4f9f7c14debf0d714, type: 3}
+      propertyPath: shootStartPoint
+      value: 
+      objectReference: {fileID: 5538221634761119962}
+    - target: {fileID: 2430686426667159005, guid: 6a33452aab7b66b4f9f7c14debf0d714, type: 3}
       propertyPath: magicRayStartPoint
       value: 
       objectReference: {fileID: 5538221634761119962}

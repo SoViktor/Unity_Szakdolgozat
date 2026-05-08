@@ -467,7 +467,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UnitAnimator
   animator: {fileID: 4781162690395915413}
   magicRayPrefab: {fileID: 1218353751348845706, guid: dd8bdb0fd8d66c54e859e044b3d3947c, type: 3}
-  magicRayStartPoint: {fileID: 5435803518779710526}
+  shootStartPoint: {fileID: 5435803518779710526}
+  arrowPrefab: {fileID: 8753933301411222094, guid: 56aed1823447c3943b89b6d1e9096ffe, type: 3}
 --- !u!114 &1985647990510708375
 MonoBehaviour:
   m_ObjectHideFlags: 0

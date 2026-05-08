@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7274684449325167581
+--- !u!1 &8019323914832210481
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,28 +8,28 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7315442818245337241}
+  - component: {fileID: 1836314144807326469}
   m_Layer: 7
-  m_Name: MagicStartPoint
+  m_Name: ShootStartPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7315442818245337241
+--- !u!4 &1836314144807326469
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7274684449325167581}
+  m_GameObject: {fileID: 8019323914832210481}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.297, y: 1.684, z: 0.1285}
+  m_LocalPosition: {x: -0.525, y: 1.524, z: 0.064}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 260605216541362083}
+  m_Father: {fileID: 9210407994820426363}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2926728904513381503
 PrefabInstance:
@@ -542,16 +542,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 3098493581462905820, guid: a1400470f4c08b445bacf3f5fbaf2ac8, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 6290443646627159556, guid: a1400470f4c08b445bacf3f5fbaf2ac8, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 7315442818245337241}
+      addedObject: {fileID: 1836314144807326469}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1400470f4c08b445bacf3f5fbaf2ac8, type: 3}
---- !u!4 &260605216541362083 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3098493581462905820, guid: a1400470f4c08b445bacf3f5fbaf2ac8, type: 3}
-  m_PrefabInstance: {fileID: 2926728904513381503}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2423222931273801988 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 665635562375644539, guid: a1400470f4c08b445bacf3f5fbaf2ac8, type: 3}
@@ -565,6 +560,11 @@ Transform:
 --- !u!95 &3421465981518194125 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 569328495589245362, guid: a1400470f4c08b445bacf3f5fbaf2ac8, type: 3}
+  m_PrefabInstance: {fileID: 2926728904513381503}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &9210407994820426363 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6290443646627159556, guid: a1400470f4c08b445bacf3f5fbaf2ac8, type: 3}
   m_PrefabInstance: {fileID: 2926728904513381503}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7005913369819387881
@@ -584,9 +584,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3421465981518194125}
     - target: {fileID: 2430686426667159005, guid: 6a33452aab7b66b4f9f7c14debf0d714, type: 3}
-      propertyPath: magicRayStartPoint
+      propertyPath: shootStartPoint
       value: 
-      objectReference: {fileID: 7315442818245337241}
+      objectReference: {fileID: 1836314144807326469}
     - target: {fileID: 4924159686163281811, guid: 6a33452aab7b66b4f9f7c14debf0d714, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2
@@ -655,10 +655,30 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4924159686163281811, guid: 6a33452aab7b66b4f9f7c14debf0d714, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2423222931273801988}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6031012854187117108, guid: 6a33452aab7b66b4f9f7c14debf0d714, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5157399211077602083}
   m_SourcePrefab: {fileID: 100100000, guid: 6a33452aab7b66b4f9f7c14debf0d714, type: 3}
 --- !u!4 &2696565677756588154 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4924159686163281811, guid: 6a33452aab7b66b4f9f7c14debf0d714, type: 3}
   m_PrefabInstance: {fileID: 7005913369819387881}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &3641291329568103901 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6031012854187117108, guid: 6a33452aab7b66b4f9f7c14debf0d714, type: 3}
+  m_PrefabInstance: {fileID: 7005913369819387881}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5157399211077602083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3641291329568103901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7302037d0df5915438d9e0f14c20c121, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ArrowShootAction

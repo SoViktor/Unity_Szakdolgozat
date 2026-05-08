@@ -5,7 +5,8 @@ public class UnitAnimator : MonoBehaviour
 {
     [SerializeField] private Animator animator;
     [SerializeField]private Transform magicRayPrefab;
-    [SerializeField]private Transform magicRayStartPoint;
+    [SerializeField]private Transform shootStartPoint;
+    [SerializeField]private Transform arrowPrefab;
 
     private void Awake()
     {
@@ -26,6 +27,11 @@ public class UnitAnimator : MonoBehaviour
             magicShootAction.OnStartMagicShootAction += MagicShootAction_OnStartMagicShootAction;
 
         }
+
+        if (TryGetComponent<ArrowShootAction>(out ArrowShootAction arrowShootAction))
+        {
+            arrowShootAction.OnStartArrowShootAction += ArrowShootAction_OnStartArrowShootAction;
+        }
     }
     private void MoveAction_OnStartMoveAction(object sender, EventArgs e)
     {
@@ -45,14 +51,27 @@ public class UnitAnimator : MonoBehaviour
     private void MagicShootAction_OnStartMagicShootAction(object sender, MagicShootAction.OnStartMagicShootActionArgs e)
     {
         animator.SetTrigger("StartSlash");
-        Transform magicRayTransform = Instantiate(magicRayPrefab,magicRayStartPoint.position,Quaternion.identity);
+        Transform magicRayTransform = Instantiate(magicRayPrefab,shootStartPoint.position,Quaternion.identity);
         MagicRayVisual magicRayVisual = magicRayTransform.GetComponent<MagicRayVisual>();
         
         Vector3 targetUnitPosition = e.targetUnit.GetWorldPosition();
 
-        targetUnitPosition.y = magicRayStartPoint.position.y;
+        targetUnitPosition.y = shootStartPoint.position.y;
         
         magicRayVisual.SetUp(targetUnitPosition);
+    }
+
+    private void ArrowShootAction_OnStartArrowShootAction(object sender, ArrowShootAction.OnStartArrowShootActionArgs e)
+    {
+        animator.SetTrigger("StartShoot");
+        Transform arrowTransform =Instantiate(arrowPrefab,shootStartPoint.position, Quaternion.identity);
+        FlyingArrow flyingArrow = arrowTransform.GetComponent<FlyingArrow>();
+
+        Vector3 targetUnitPosition = e.targetUnit.GetWorldPosition();
+
+        targetUnitPosition.y = shootStartPoint.position.y;
+
+        flyingArrow.SetUp(targetUnitPosition);
     }
 
 }
