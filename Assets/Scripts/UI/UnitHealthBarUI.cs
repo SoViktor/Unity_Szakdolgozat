@@ -9,16 +9,11 @@ public class UnitHealthBarUI : MonoBehaviour
     [SerializeField] private Image fillImage;
 
     private Camera mainCamera;
-    private StatSystem statSystem;
 
     private void Awake()
     {
         mainCamera = Camera.main;
-
     }
-
-
-
 
     private void LateUpdate()
     {
@@ -27,6 +22,8 @@ public class UnitHealthBarUI : MonoBehaviour
             Destroy(gameObject);
             return;
         }
+
+        //Tried geting a statSystem but during unit death it broke the game.
 
         float maxHP = unit.GetStatSystem().GetBaseHealthPoints();
         float currentHP = unit.GetStatSystem().GetHealthPoints();

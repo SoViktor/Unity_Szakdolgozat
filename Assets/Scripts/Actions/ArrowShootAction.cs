@@ -13,13 +13,8 @@ public class ArrowShootAction : AttackAction
 
     protected override bool isAttackCirculiar => true;
 
-    public event EventHandler<OnStartArrowShootActionArgs> OnStartArrowShootAction;
+    public event EventHandler<ActionArgsWithTwoUnits> OnStartArrowShootAction;
 
-    public class OnStartArrowShootActionArgs : EventArgs
-    {
-        public Unit targetUnit;
-        public Unit attackingUnit;
-    }
 
     public override string GetActionName()
     {
@@ -30,7 +25,7 @@ public class ArrowShootAction : AttackAction
     {
         SetAttackStat();
 
-        OnStartArrowShootAction?.Invoke(this, new OnStartArrowShootActionArgs {targetUnit = targetUnit, attackingUnit = unit});
+        OnStartArrowShootAction?.Invoke(this, new ActionArgsWithTwoUnits {targetUnit = targetUnit, activeUnit = unit});
 
         targetUnit.Damage(isMagical, damageType, attackValue, attackStat );
     }

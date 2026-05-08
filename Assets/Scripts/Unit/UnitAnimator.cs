@@ -48,7 +48,7 @@ public class UnitAnimator : MonoBehaviour
         animator.SetTrigger("StartSlash");
 
     }
-    private void MagicShootAction_OnStartMagicShootAction(object sender, MagicShootAction.OnStartMagicShootActionArgs e)
+    private void MagicShootAction_OnStartMagicShootAction(object sender, ActionArgsWithTwoUnits e)
     {
         animator.SetTrigger("StartSlash");
         Transform magicRayTransform = Instantiate(magicRayPrefab,shootStartPoint.position,Quaternion.identity);
@@ -61,7 +61,7 @@ public class UnitAnimator : MonoBehaviour
         magicRayVisual.SetUp(targetUnitPosition);
     }
 
-    private void ArrowShootAction_OnStartArrowShootAction(object sender, ArrowShootAction.OnStartArrowShootActionArgs e)
+    private void ArrowShootAction_OnStartArrowShootAction(object sender, ActionArgsWithTwoUnits e)
     {
         animator.SetTrigger("StartShoot");
         Transform arrowTransform =Instantiate(arrowPrefab,shootStartPoint.position, Quaternion.identity);

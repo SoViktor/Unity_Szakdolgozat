@@ -14,17 +14,13 @@ public class MagicShootAction : AttackAction
 
     protected override bool isAttackCirculiar => true;
 
-    public event EventHandler<OnStartMagicShootActionArgs> OnStartMagicShootAction;
+    public event EventHandler<ActionArgsWithTwoUnits> OnStartMagicShootAction;
 
-    public class OnStartMagicShootActionArgs : EventArgs
-    {
-        public Unit targetUnit;
-        public Unit attackingUnit;
-    }
+
     
     protected override void Attack()
     {
-        OnStartMagicShootAction?.Invoke(this, new OnStartMagicShootActionArgs{targetUnit =targetUnit, attackingUnit = unit});
+        OnStartMagicShootAction?.Invoke(this, new ActionArgsWithTwoUnits{targetUnit =targetUnit, activeUnit = unit});
         SetAttackStat();
 
         targetUnit.Damage(isMagical, damageType, attackValue, attackStat);

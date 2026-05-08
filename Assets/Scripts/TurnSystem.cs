@@ -177,4 +177,17 @@ private void Unit_OnAnyUnitDied(object sender, EventArgs e)
         return hasPlayerWon;
     }
 
+    public void AddUnitToTurnSystem(Unit unit)
+    {
+        if (unit == null)
+        {
+            return;
+        }
+
+        if (!unitList.Contains(unit))
+        {
+            unitList.Add(unit);
+        }
+    }
+
 }

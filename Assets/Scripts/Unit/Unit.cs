@@ -17,10 +17,7 @@ public class Unit : MonoBehaviour
 
     private void Awake()
     {
-        moveAction = GetComponent<MoveAction>();
-        baseActionArray = GetComponents<BaseAction>();
-        statSystem = GetComponent<StatSystem>();
-
+        SetUpUnit();
     }
     private void Start()
     {
@@ -41,6 +38,13 @@ public class Unit : MonoBehaviour
             LevelGrid.Instance.UnitMovedGridPosition(this, currentGridPosition, newGridPosition);
         }
 
+    }
+
+    public void SetUpUnit()
+    {
+        moveAction = GetComponent<MoveAction>();
+        baseActionArray = GetComponents<BaseAction>();
+        statSystem = GetComponent<StatSystem>();
     }
 
     public MoveAction GetMoveAction()
