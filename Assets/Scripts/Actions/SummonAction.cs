@@ -4,10 +4,88 @@ using UnityEngine;
 
 public class SummonAction : BaseAction
 {
+    private enum State
+    {
+        Ready,
+        Attack,
+        Finished,
+    }
     [SerializeField] Unit summonedUnit;
     [SerializeField] int summonRange;
 
     public event EventHandler<ActionArgsWithTwoUnits> OnNewUnitSummoned;
+
+    private State state;
+    private float stateTimer;
+    private bool canSummon;
+    private Vector3 summonWorldPosition;
+
+    protected void Update()
+    {
+        if (!isActive)
+        {
+            return;
+        }
+        stateTimer -= Time.deltaTime;
+        switch (state)
+        {
+            case State.Ready:
+
+                Vector3 summonedUnitDirection = (summonWorldPosition - unit.GetWorldPosition()).normalized;
+                float rotationSpeed = 10f; 
+                transform.forward = Vector3.Lerp(transform.forward, summonedUnitDirection, Time.deltaTime * rotationSpeed);
+
+                break;
+            case State.Attack:
+            if (canSummon)
+            {
+                canSummon = false;
+
+                Unit newUnit = Instantiate(summonedUnit, summonWorldPosition, Quaternion.identity);
+
+                TurnSystem.Instance.AddUnitToTurnSystem(newUnit);
+                OnNewUnitSummoned?.Invoke(this, new ActionArgsWithTwoUnits{targetUnit = newUnit, activeUnit = unit} );
+        
+
+            }
+
+                break;
+            case State.Finished:
+
+                break;
+        }
+
+        if (stateTimer <= 0f)
+        {
+            NextState();
+        }
+    }
+
+    protected virtual void NextState()
+    {
+        switch (state)
+        {
+            case State.Ready:
+
+                state = State.Attack;
+                float attackStateTimer = 0.2f;
+                stateTimer = attackStateTimer;
+
+                break;
+            case State.Attack:
+
+                state = State.Finished;
+                float finishedStateTimer = 0.3f;
+                stateTimer = finishedStateTimer;
+
+                break;
+            case State.Finished:
+
+                ActionComplete();
+
+                break;
+        }
+    }
 
 
     public override string GetActionName()
@@ -52,16 +130,19 @@ public class SummonAction : BaseAction
     {
         ActionStart(onActionComplete);
 
-        Vector3 summonWorldPosition = LevelGrid.Instance.GetWorldPosition(gridPosition);
+        summonWorldPosition = LevelGrid.Instance.GetWorldPosition(gridPosition);
 
-        Unit newUnit = Instantiate(summonedUnit, summonWorldPosition, Quaternion.identity);
+        state = State.Ready;
+        float readystateTimer = 1f;
+        stateTimer = readystateTimer;
 
-        TurnSystem.Instance.AddUnitToTurnSystem(newUnit);
-        
-        OnNewUnitSummoned?.Invoke(this, new ActionArgsWithTwoUnits{activeUnit = unit, targetUnit = newUnit} );
-
-        ActionComplete();
+        canSummon = true;
 
         return;
+    }
+
+    public override int GetActionPointCost()
+    {
+        return 2;
     }
 }

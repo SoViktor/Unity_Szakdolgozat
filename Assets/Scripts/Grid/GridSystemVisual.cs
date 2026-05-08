@@ -126,6 +126,9 @@ public class GridSystemVisual : MonoBehaviour
 
             ShowAttackRange(activeUnit.GetGridPosition(),attackAction.GetMaxAttackDistance(),attackAction.GetIsAttackCirculiar(),GridVisualVariants.AttackRange);
             break;
+        case SummonAction summonAction:
+            gridVisualVariant = GridVisualVariants.Support;
+            break;
 
         default:
             gridVisualVariant = GridVisualVariants.Basic;

@@ -7,6 +7,7 @@ public class UnitAnimator : MonoBehaviour
     [SerializeField]private Transform magicRayPrefab;
     [SerializeField]private Transform shootStartPoint;
     [SerializeField]private Transform arrowPrefab;
+    [SerializeField] private Transform summonVFX;
 
     private void Awake()
     {
@@ -31,6 +32,11 @@ public class UnitAnimator : MonoBehaviour
         if (TryGetComponent<ArrowShootAction>(out ArrowShootAction arrowShootAction))
         {
             arrowShootAction.OnStartArrowShootAction += ArrowShootAction_OnStartArrowShootAction;
+        }
+
+        if (TryGetComponent<SummonAction>(out SummonAction summonAction))
+        {
+            summonAction.OnNewUnitSummoned += SummonAction_OnNewUnitSummoned;
         }
     }
     private void MoveAction_OnStartMoveAction(object sender, EventArgs e)
@@ -72,6 +78,19 @@ public class UnitAnimator : MonoBehaviour
         targetUnitPosition.y = shootStartPoint.position.y;
 
         flyingArrow.SetUp(targetUnitPosition);
+    }
+
+    private void SummonAction_OnNewUnitSummoned(object sender, ActionArgsWithTwoUnits e)
+    {
+        animator.SetTrigger("StartSlash");
+
+        Vector3 targetPosition = e.targetUnit.GetWorldPosition();
+
+        targetPosition.y = shootStartPoint.position.y;
+
+        Instantiate(summonVFX, targetPosition, Quaternion.identity);
+
+
     }
 
 }

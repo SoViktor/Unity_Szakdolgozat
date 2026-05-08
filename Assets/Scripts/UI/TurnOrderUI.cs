@@ -6,12 +6,18 @@ public class TurnOrderUI : MonoBehaviour
 {
     [SerializeField] private Transform container;
     [SerializeField] private Transform singelTurnOrderTransform;
+    [SerializeField]private int MaxShowedUnits = 7;
 
     private void Start()
     {
 
         TurnSystem.Instance.OnTurnChanged += TurnSystem_OnTurnChanged;
         Unit.OnAnyUnitDied += Unit_OnAnyUnitDied;
+
+        if (TryGetComponent<SummonAction>(out SummonAction summonAction))
+        {
+            summonAction.OnNewUnitSummoned += SummonAction_OnNewUnitSummoned;
+        }
 
         UpdateVisual();
     }
@@ -21,7 +27,14 @@ public class TurnOrderUI : MonoBehaviour
         UpdateVisual();
     }
 
+    //They dont work. Only update visual when turn changed.
+
     private void Unit_OnAnyUnitDied(object sender, EventArgs e)
+    {
+        UpdateVisual();
+    }
+
+    private void SummonAction_OnNewUnitSummoned(object sender, EventArgs e)
     {
         UpdateVisual();
     }
@@ -37,8 +50,15 @@ public class TurnOrderUI : MonoBehaviour
 
             List<Unit> turnOrderUnits = TurnSystem.Instance.GetTurnOrderList();
 
+            int counter = 0;
+
+
             foreach (Unit item in turnOrderUnits)
             {
+                if (counter >= MaxShowedUnits)
+                {
+                    break;
+                }
                 Transform turnOrderTransform = Instantiate(singelTurnOrderTransform, container);
 
                 turnOrderTransform.gameObject.SetActive(true);
@@ -46,6 +66,7 @@ public class TurnOrderUI : MonoBehaviour
                 TurnOrderSingleUI turnOrderSingleUI = turnOrderTransform.GetComponent<TurnOrderSingleUI>();
 
                 turnOrderSingleUI.SetUnit(item);
+                counter++;
 
             }
         
