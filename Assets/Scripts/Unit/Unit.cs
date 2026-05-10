@@ -127,8 +127,7 @@ public class Unit : MonoBehaviour
     {
         LevelGrid.Instance.RemoveUnitAtGridPosition(gridPosition, this);
         OnAnyUnitDied?.Invoke(this, EventArgs.Empty);
-
-
+        
         Destroy(gameObject);
     }
 

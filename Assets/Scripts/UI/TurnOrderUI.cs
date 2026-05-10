@@ -12,12 +12,9 @@ public class TurnOrderUI : MonoBehaviour
     {
 
         TurnSystem.Instance.OnTurnChanged += TurnSystem_OnTurnChanged;
-        Unit.OnAnyUnitDied += Unit_OnAnyUnitDied;
+        TurnSystem.Instance.OnFinishedUpdateOnTurnOrder += TurnSystem_OnFinishedUpdateOnTurnOrder;
 
-        if (TryGetComponent<SummonAction>(out SummonAction summonAction))
-        {
-            summonAction.OnNewUnitSummoned += SummonAction_OnNewUnitSummoned;
-        }
+        SummonAction.OnSummonFinished += SummonAction_OnSummonFinished;
 
         UpdateVisual();
     }
@@ -27,14 +24,12 @@ public class TurnOrderUI : MonoBehaviour
         UpdateVisual();
     }
 
-    //They dont work. Only update visual when turn changed.
-
-    private void Unit_OnAnyUnitDied(object sender, EventArgs e)
+    private void TurnSystem_OnFinishedUpdateOnTurnOrder(object sender, EventArgs e)
     {
         UpdateVisual();
     }
 
-    private void SummonAction_OnNewUnitSummoned(object sender, EventArgs e)
+    private void SummonAction_OnSummonFinished(object sender, EventArgs e)
     {
         UpdateVisual();
     }
@@ -75,7 +70,10 @@ public class TurnOrderUI : MonoBehaviour
     private void OnDestroy()
     {
         TurnSystem.Instance.OnTurnChanged -= TurnSystem_OnTurnChanged;
-        Unit.OnAnyUnitDied -= Unit_OnAnyUnitDied;
+        TurnSystem.Instance.OnFinishedUpdateOnTurnOrder -= TurnSystem_OnFinishedUpdateOnTurnOrder;
+
+        SummonAction.OnSummonFinished -= SummonAction_OnSummonFinished;
+        
 
     }
 }

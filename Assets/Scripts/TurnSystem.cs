@@ -9,6 +9,7 @@ public class TurnSystem : MonoBehaviour
 
     public event EventHandler OnTurnChanged;
     public event EventHandler OnAnyTeamWin;
+    public event EventHandler OnFinishedUpdateOnTurnOrder;
     private int turnNumber = 1;
 
     private int actionValuePerTurn = 100;
@@ -134,43 +135,51 @@ public class TurnSystem : MonoBehaviour
         return unitList;
     }
 
-private void Unit_OnAnyUnitDied(object sender, EventArgs e)
-{
-    Unit deadUnit = sender as Unit;
-
-    if (deadUnit != null)
+    private void Unit_OnAnyUnitDied(object sender, EventArgs e)
     {
-        unitList.Remove(deadUnit);
+        Unit deadUnit = sender as Unit;
+
+        if (deadUnit != null)
+        {
+            unitList.Remove(deadUnit);
+        }
+        CheckForWictory();
+        ReorderUnitList();
+        OnFinishedUpdateOnTurnOrder?.Invoke(this, EventArgs.Empty);
+
     }
 
-    bool hasEnemyAnyMember = false;
-    bool hasPlayerAnyMember = false;
-
-    foreach (Unit item in unitList)
+    private void CheckForWictory()
     {
-        if (item == null)
+        
+        bool hasEnemyAnyMember = false;
+        bool hasPlayerAnyMember = false;
+
+        foreach (Unit item in unitList)
         {
-            continue;
+            if (item == null)
+            {
+                continue;
+            }
+
+            if (item.IsEnemy())
+            {
+                hasEnemyAnyMember = true;
+            }
+            else
+            {
+                hasPlayerAnyMember = true;
+            }
         }
 
-        if (item.IsEnemy())
+        if (hasEnemyAnyMember && hasPlayerAnyMember)
         {
-            hasEnemyAnyMember = true;
+            return;
         }
-        else
-        {
-            hasPlayerAnyMember = true;
-        }
+
+        hasPlayerWon = hasPlayerAnyMember;
+        OnAnyTeamWin?.Invoke(this, EventArgs.Empty);
     }
-
-    if (hasEnemyAnyMember && hasPlayerAnyMember)
-    {
-        return;
-    }
-
-    hasPlayerWon = hasPlayerAnyMember;
-    OnAnyTeamWin?.Invoke(this, EventArgs.Empty);
-}
 
     public bool DidPlayerWin()
     {

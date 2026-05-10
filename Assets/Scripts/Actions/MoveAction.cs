@@ -20,7 +20,7 @@ public class MoveAction : BaseAction
     }
 
 
-    void Update()
+    private void Update()
     {
         if(!isActive)
         {
