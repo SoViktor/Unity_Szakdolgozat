@@ -6,5 +6,6 @@ public enum GridVisualVariants
     Support,
     SupportRange,
     Debuff,
-    DebuffRange
+    DebuffRange,
+    Summon
 }
