@@ -539,7 +539,8 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 569328495589245362, guid: a1400470f4c08b445bacf3f5fbaf2ac8, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 3098493581462905820, guid: a1400470f4c08b445bacf3f5fbaf2ac8, type: 3}
@@ -952,6 +953,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 665635562375644539, guid: a1400470f4c08b445bacf3f5fbaf2ac8, type: 3}
   m_PrefabInstance: {fileID: 2926728904513381503}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &2667104308259593309 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 981399144182151202, guid: a1400470f4c08b445bacf3f5fbaf2ac8, type: 3}
+  m_PrefabInstance: {fileID: 2926728904513381503}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &3166264711533006858 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 246854191851828341, guid: a1400470f4c08b445bacf3f5fbaf2ac8, type: 3}
@@ -1154,11 +1160,6 @@ CharacterJoint:
   m_EnablePreprocessing: 0
   m_MassScale: 1
   m_ConnectedMassScale: 1
---- !u!95 &3421465981518194125 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 569328495589245362, guid: a1400470f4c08b445bacf3f5fbaf2ac8, type: 3}
-  m_PrefabInstance: {fileID: 2926728904513381503}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &3599222586097109576 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1832637058808737335, guid: a1400470f4c08b445bacf3f5fbaf2ac8, type: 3}
@@ -1726,10 +1727,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2430686426667159005, guid: 6a33452aab7b66b4f9f7c14debf0d714, type: 3}
-      propertyPath: animator
-      value: 
-      objectReference: {fileID: 3421465981518194125}
-    - target: {fileID: 2430686426667159005, guid: 6a33452aab7b66b4f9f7c14debf0d714, type: 3}
       propertyPath: magicRayStartPoint
       value: 
       objectReference: {fileID: 7315442818245337241}
@@ -1777,10 +1774,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: UnitSkeletonArcherRagdoll
       objectReference: {fileID: 0}
-    - target: {fileID: 7076665684905611307, guid: 6a33452aab7b66b4f9f7c14debf0d714, type: 3}
-      propertyPath: unitAnimation
-      value: 
-      objectReference: {fileID: 3421465981518194125}
     - target: {fileID: 8055857643410760447, guid: 6a33452aab7b66b4f9f7c14debf0d714, type: 3}
       propertyPath: unitType
       value: 2
@@ -1797,6 +1790,7 @@ PrefabInstance:
     m_RemovedGameObjects:
     - {fileID: 7943077174989034468, guid: 6a33452aab7b66b4f9f7c14debf0d714, type: 3}
     - {fileID: 8651542739276234416, guid: 6a33452aab7b66b4f9f7c14debf0d714, type: 3}
+    - {fileID: 664566358544293232, guid: 6a33452aab7b66b4f9f7c14debf0d714, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 4924159686163281811, guid: 6a33452aab7b66b4f9f7c14debf0d714, type: 3}
       insertIndex: -1
@@ -1828,3 +1822,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9be24d7b1c7f0c48be8559662a16360, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UnitRagdoll
+  ragdollRootSkeleton: {fileID: 2667104308259593309}

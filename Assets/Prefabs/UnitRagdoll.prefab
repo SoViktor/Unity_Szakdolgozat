@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9be24d7b1c7f0c48be8559662a16360, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UnitRagdoll
+  ragdollRootSkeleton: {fileID: 7048937579174016007}
 --- !u!1001 &7132034172112154293
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1359,6 +1360,11 @@ CharacterJoint:
   m_EnablePreprocessing: 0
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!4 &7048937579174016007 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8995720166648014158, guid: a04c9719bbbbe2e419d299ad94d41699, type: 3}
+  m_PrefabInstance: {fileID: 7132034172112154293}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7309529351174506846 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a04c9719bbbbe2e419d299ad94d41699, type: 3}

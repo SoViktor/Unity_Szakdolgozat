@@ -38,6 +38,11 @@ public class UnitAnimator : MonoBehaviour
         {
             summonAction.OnNewUnitSummoned += SummonAction_OnNewUnitSummoned;
         }
+
+        if (TryGetComponent<HealAction>(out HealAction healAction))
+        {
+            healAction.OnStartHeal += HealAction_OnStartHeal;
+        }
     }
     private void MoveAction_OnStartMoveAction(object sender, EventArgs e)
     {
@@ -91,6 +96,17 @@ public class UnitAnimator : MonoBehaviour
         Instantiate(summonVFX, targetPosition, Quaternion.identity);
 
 
+    }
+
+    private void HealAction_OnStartHeal(object sender, ActionArgsWithTwoUnits e)
+    {
+        animator.SetTrigger("StartSlash");
+
+        Vector3 targetPosition = e.targetUnit.GetWorldPosition();
+
+        targetPosition.y = shootStartPoint.position.y;
+
+        Instantiate(summonVFX, targetPosition, Quaternion.identity);
     }
 
 }

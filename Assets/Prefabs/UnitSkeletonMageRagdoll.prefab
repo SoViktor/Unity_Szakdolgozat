@@ -530,9 +530,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 5538221634761119962}
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a8d9674eb2fcd244ea544c2c80a68870, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8584411743793543846}
     - targetCorrespondingSourceObject: {fileID: 7002316586403224294, guid: a8d9674eb2fcd244ea544c2c80a68870, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3597305070801065500}
@@ -1035,33 +1032,6 @@ CharacterJoint:
   m_EnablePreprocessing: 0
   m_MassScale: 1
   m_ConnectedMassScale: 1
---- !u!1 &2408428541447002881 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a8d9674eb2fcd244ea544c2c80a68870, type: 3}
-  m_PrefabInstance: {fileID: 3291318988697593424}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &8584411743793543846
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2408428541447002881}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 5b428ac4870d5aa43a515ec52454e895, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2767263251844965190 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8373785541494749930, guid: a8d9674eb2fcd244ea544c2c80a68870, type: 3}
@@ -1166,6 +1136,11 @@ CharacterJoint:
 --- !u!4 &3037577153922990523 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a8d9674eb2fcd244ea544c2c80a68870, type: 3}
+  m_PrefabInstance: {fileID: 3291318988697593424}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &3352319718923042018 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8995720166648014158, guid: a8d9674eb2fcd244ea544c2c80a68870, type: 3}
   m_PrefabInstance: {fileID: 3291318988697593424}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &4212451037646842615 stripped
@@ -1735,10 +1710,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2430686426667159005, guid: 6a33452aab7b66b4f9f7c14debf0d714, type: 3}
-      propertyPath: animator
-      value: 
-      objectReference: {fileID: 8584411743793543846}
-    - target: {fileID: 2430686426667159005, guid: 6a33452aab7b66b4f9f7c14debf0d714, type: 3}
       propertyPath: magicRayStartPoint
       value: 
       objectReference: {fileID: 5538221634761119962}
@@ -1786,10 +1757,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: UnitSkeletonMageRagdoll
       objectReference: {fileID: 0}
-    - target: {fileID: 7076665684905611307, guid: 6a33452aab7b66b4f9f7c14debf0d714, type: 3}
-      propertyPath: unitAnimation
-      value: 
-      objectReference: {fileID: 8584411743793543846}
     - target: {fileID: 8055857643410760447, guid: 6a33452aab7b66b4f9f7c14debf0d714, type: 3}
       propertyPath: unitType
       value: 1
@@ -1806,6 +1773,7 @@ PrefabInstance:
     m_RemovedGameObjects:
     - {fileID: 7943077174989034468, guid: 6a33452aab7b66b4f9f7c14debf0d714, type: 3}
     - {fileID: 8651542739276234416, guid: 6a33452aab7b66b4f9f7c14debf0d714, type: 3}
+    - {fileID: 664566358544293232, guid: 6a33452aab7b66b4f9f7c14debf0d714, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 4924159686163281811, guid: 6a33452aab7b66b4f9f7c14debf0d714, type: 3}
       insertIndex: -1
@@ -1837,3 +1805,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9be24d7b1c7f0c48be8559662a16360, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UnitRagdoll
+  ragdollRootSkeleton: {fileID: 3352319718923042018}

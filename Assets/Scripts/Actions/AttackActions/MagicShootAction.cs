@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MagicShootAction : AttackAction
 {
-    protected override int maxAttackDistance => 7;
+    protected override int range => 7;
 
     protected override DamageTypes damageType => DamageTypes.Blight;
 
@@ -12,24 +12,19 @@ public class MagicShootAction : AttackAction
 
     protected override float attackValue => 20f;
 
-    protected override bool isAttackCirculiar => true;
+    protected override bool isCirculiar => true;
 
     public event EventHandler<ActionArgsWithTwoUnits> OnStartMagicShootAction;
-
-
     
-    protected override void Attack()
-    {
-        OnStartMagicShootAction?.Invoke(this, new ActionArgsWithTwoUnits{targetUnit =targetUnit, activeUnit = unit});
-        SetAttackStat();
-
-        targetUnit.Damage(isMagical, damageType, attackValue, attackStat);
-    }
-
     public override string GetActionName()
     {
         return "Magic Shoot";
     }
 
+    protected override void DoAction()
+    {
+        OnStartMagicShootAction?.Invoke(this, new ActionArgsWithTwoUnits{targetUnit =targetUnit, activeUnit = unit});
+        Attack();
 
+    }
 }

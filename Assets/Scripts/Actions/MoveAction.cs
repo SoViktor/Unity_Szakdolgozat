@@ -12,7 +12,9 @@ public class MoveAction : BaseAction
 
 
     private Vector3 targetPosition;
-    
+
+    protected override bool isCirculiar => false;
+
     protected override void Awake()
     {
         base.Awake();
@@ -54,11 +56,11 @@ public class MoveAction : BaseAction
             GridPosition unitGridPosition = unit.GetGridPosition();
             StatSystem statSystem = unit.GetStatSystem();
 
-            int maxMoveDistance = statSystem.GetMoveDistance();
+            int range = statSystem.GetMoveDistance();
 
-            for (int x = -maxMoveDistance; x <= maxMoveDistance; x++)
+            for (int x = -range; x <= range; x++)
             {
-                for (int z = -maxMoveDistance; z <= maxMoveDistance; z++)
+                for (int z = -range; z <= range; z++)
                 {
                     GridPosition offetGridPosition = new GridPosition (x,z);
                     GridPosition testGridPosition = unitGridPosition + offetGridPosition;

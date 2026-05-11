@@ -4,6 +4,7 @@ using UnityEngine;
 
 public abstract class BaseAction : MonoBehaviour
 {
+    protected abstract bool isCirculiar {get;}
     protected Unit unit;
     protected bool isActive;
 
@@ -42,6 +43,11 @@ public abstract class BaseAction : MonoBehaviour
     {
         isActive = false;
         onActionComplete();
+    }
+
+    public bool GetIsCirculiar()
+    {
+        return isCirculiar;
     }
 
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SlashAction : AttackAction
 {
-    protected override int maxAttackDistance => 1;
+    protected override int range => 1;
 
     protected override DamageTypes damageType => DamageTypes.Steel;
 
@@ -12,23 +12,19 @@ public class SlashAction : AttackAction
 
     protected override float attackValue => 20f;
 
-    protected override bool isAttackCirculiar => false;
+    protected override bool isCirculiar => false;
 
     public event EventHandler OnStartSlashAction;
-
-    protected override void Attack()
-    {
-        OnStartSlashAction?.Invoke(this, EventArgs.Empty);
-        SetAttackStat();
-        
-        targetUnit.Damage(isMagical, damageType, attackValue, attackStat);
-    }
 
     public override string GetActionName()
     {
         return "Slash";
     }
 
-
-
+    protected override void DoAction()
+    {
+        
+        OnStartSlashAction?.Invoke(this, EventArgs.Empty);
+        Attack();
+    }
 }

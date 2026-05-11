@@ -71,13 +71,13 @@ public class GridSystemVisual : MonoBehaviour
         }
     }
 
-    private void ShowAttackRange(GridPosition unitGridPosition, int maxAttackDistance, bool isAttackCirculiar, GridVisualVariants gridVisualVariant)
+    private void ShowRange(GridPosition unitGridPosition, int range, bool isCirculiar, GridVisualVariants gridVisualVariant)
     {
         List<GridPosition> validGridPositionList = new List<GridPosition>();
 
-        for (int x = -maxAttackDistance; x <= maxAttackDistance; x++)
+        for (int x = -range; x <= range; x++)
         {
-            for (int z = -maxAttackDistance; z <= maxAttackDistance; z++)
+            for (int z = -range; z <= range; z++)
             {
                 GridPosition offsetGridPosition = new GridPosition (x,z);
                 GridPosition testGridPosition = unitGridPosition + offsetGridPosition;
@@ -86,15 +86,11 @@ public class GridSystemVisual : MonoBehaviour
                 {
                     continue;
                 }
-                if (unitGridPosition == testGridPosition)
-                {
-                    continue;
-                }
 
-                if (isAttackCirculiar)
+                if (isCirculiar)
                 {
                     int testDistance = Mathf.Abs(x) + Mathf.Abs(z);
-                    if (testDistance > maxAttackDistance)
+                    if (testDistance > range)
                     {
                         continue;
                     }
@@ -124,10 +120,20 @@ public class GridSystemVisual : MonoBehaviour
         case AttackAction attackAction:
             gridVisualVariant = GridVisualVariants.Attack;
 
-            ShowAttackRange(activeUnit.GetGridPosition(),attackAction.GetMaxAttackDistance(),attackAction.GetIsAttackCirculiar(),GridVisualVariants.AttackRange);
+            ShowRange(activeUnit.GetGridPosition(), 
+                    attackAction.GetRange(), 
+                    attackAction.GetIsCirculiar(), 
+                    GridVisualVariants.AttackRange);
             break;
         case SummonAction:
             gridVisualVariant = GridVisualVariants.Summon;
+            break;
+        case SupportAction supportAction:
+            gridVisualVariant = GridVisualVariants.Support;
+            ShowRange(activeUnit.GetGridPosition(),
+                        supportAction.GetRange(),
+                        supportAction.GetIsCirculiar(),
+                        GridVisualVariants.SupportRange );
             break;
 
         default:

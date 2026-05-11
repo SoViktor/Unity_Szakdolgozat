@@ -6,10 +6,13 @@ public class ActionButtonUI : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI textMeshProUGUI;
     [SerializeField] private Button button;
+
     [SerializeField] private GameObject selectedGameObject;
+
     [SerializeField] private ButtonStyle defaultButton;
     [SerializeField] private ButtonStyle attackStyle;
     [SerializeField] private ButtonStyle summonStyle;
+    [SerializeField] private ButtonStyle supportStyle;
 
     private BaseAction baseAction;
 
@@ -27,6 +30,10 @@ public class ActionButtonUI : MonoBehaviour
 
             case SummonAction:
                 button.colors = summonStyle.colorBlock;
+                break;
+
+            case SupportAction:
+                button.colors = supportStyle.colorBlock;
                 break;
 
             default:

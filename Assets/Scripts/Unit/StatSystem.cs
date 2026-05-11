@@ -85,6 +85,16 @@ public class StatSystem : MonoBehaviour
 
     }
 
+    public void Heal (int healAmount)
+    {
+        int newHealtPoints = healthPoints + healAmount;
+        if (newHealtPoints > baseHealthPoints)
+        {
+            newHealtPoints = baseHealthPoints;
+        }
+        healthPoints = newHealtPoints;
+    }
+
     private void Death()
     {
         OnDeath?.Invoke(this, EventArgs.Empty);

@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class ArrowShootAction : AttackAction
 {
-    protected override int maxAttackDistance => 7;
+    protected override int range => 7;
 
     protected override DamageTypes damageType => DamageTypes.Plant;
 
@@ -11,7 +11,7 @@ public class ArrowShootAction : AttackAction
 
     protected override float attackValue => 50f;
 
-    protected override bool isAttackCirculiar => true;
+    protected override bool isCirculiar => true;
 
     public event EventHandler<ActionArgsWithTwoUnits> OnStartArrowShootAction;
 
@@ -21,12 +21,12 @@ public class ArrowShootAction : AttackAction
         return "Arrow Shoot";
     }
 
-    protected override void Attack()
+    protected override void DoAction()
     {
-        SetAttackStat();
 
         OnStartArrowShootAction?.Invoke(this, new ActionArgsWithTwoUnits {targetUnit = targetUnit, activeUnit = unit});
 
-        targetUnit.Damage(isMagical, damageType, attackValue, attackStat );
+        Attack();
     }
+
 }
