@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class UnitAnimator : MonoBehaviour
 {
+    private static readonly int IsRunningHash = Animator.StringToHash("IsRunning");
+    private static readonly int StartShootHash = Animator.StringToHash("StartShoot");
+    private static readonly int StartSlashHash = Animator.StringToHash("StartSlash");
     [SerializeField] private Animator animator;
     [SerializeField]private Transform magicRayPrefab;
     [SerializeField]private Transform shootStartPoint;
@@ -43,25 +46,30 @@ public class UnitAnimator : MonoBehaviour
         {
             healAction.OnStartHeal += HealAction_OnStartHeal;
         }
+
+        if (TryGetComponent<BuffAction>(out BuffAction buffAction))
+        {
+            buffAction.OnBuffActionStarted += BuffAction_OnBuffActionStarted;
+        }
     }
     private void MoveAction_OnStartMoveAction(object sender, EventArgs e)
     {
-        animator.SetBool("IsRunning", true);
+        animator.SetBool(IsRunningHash, true);
     }
 
     private void MoveAction_OnStopMoveAction(object sender, EventArgs e)
     {
-        animator.SetBool("IsRunning", false);
+        animator.SetBool(IsRunningHash, false);
     }
 
     private void SlashAction_OnStartSlashAction(object sender, EventArgs e)
     {
-        animator.SetTrigger("StartSlash");
+        animator.SetTrigger(StartSlashHash);
 
     }
     private void MagicShootAction_OnStartMagicShootAction(object sender, ActionArgsWithTwoUnits e)
     {
-        animator.SetTrigger("StartSlash");
+        animator.SetTrigger(StartSlashHash);
         Transform magicRayTransform = Instantiate(magicRayPrefab,shootStartPoint.position,Quaternion.identity);
         MagicRayVisual magicRayVisual = magicRayTransform.GetComponent<MagicRayVisual>();
         
@@ -74,7 +82,7 @@ public class UnitAnimator : MonoBehaviour
 
     private void ArrowShootAction_OnStartArrowShootAction(object sender, ActionArgsWithTwoUnits e)
     {
-        animator.SetTrigger("StartShoot");
+        animator.SetTrigger(StartShootHash);
         Transform arrowTransform =Instantiate(arrowPrefab,shootStartPoint.position, Quaternion.identity);
         FlyingArrow flyingArrow = arrowTransform.GetComponent<FlyingArrow>();
 
@@ -87,7 +95,7 @@ public class UnitAnimator : MonoBehaviour
 
     private void SummonAction_OnNewUnitSummoned(object sender, ActionArgsWithTwoUnits e)
     {
-        animator.SetTrigger("StartSlash");
+        animator.SetTrigger(StartSlashHash);
 
         Vector3 targetPosition = e.targetUnit.GetWorldPosition();
 
@@ -100,13 +108,24 @@ public class UnitAnimator : MonoBehaviour
 
     private void HealAction_OnStartHeal(object sender, ActionArgsWithTwoUnits e)
     {
-        animator.SetTrigger("StartSlash");
+        animator.SetTrigger(StartSlashHash);
 
         Vector3 targetPosition = e.targetUnit.GetWorldPosition();
 
         targetPosition.y = shootStartPoint.position.y;
 
         Instantiate(summonVFX, targetPosition, Quaternion.identity);
+    }
+
+    private void BuffAction_OnBuffActionStarted(object sender, ActionArgsWithTwoUnits e)
+    {
+        animator.SetTrigger(StartSlashHash);
+        Vector3 targetPosition = e.targetUnit.GetWorldPosition();
+
+        targetPosition.y = shootStartPoint.position.y;
+
+        Instantiate(summonVFX, targetPosition, Quaternion.identity);
+
     }
 
 }

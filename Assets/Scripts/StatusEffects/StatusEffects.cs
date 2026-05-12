@@ -49,7 +49,7 @@ public abstract class StatusEffects : MonoBehaviour
     protected void OnDestroy()
     {
         Debug.Log("StatusEffect Destroyed");
-        OnAnyStatusEffectRemoved.Invoke(this, new EventArgsWithOneUnit{unit = unit});
+        OnAnyStatusEffectRemoved?.Invoke(this, new EventArgsWithOneUnit{unit = unit});
         TurnSystem.Instance.OnTurnChanged -= TurnSystem_OnTurnChanged;
 
     }
@@ -65,7 +65,7 @@ public abstract class StatusEffects : MonoBehaviour
 
     protected void TriggerStatusEffectAdded()
     {
-        OnAnyStatusEffectApplied.Invoke(this, new EventArgsWithOneUnit{unit = unit,});
+        OnAnyStatusEffectApplied?.Invoke(this, new EventArgsWithOneUnit{unit = unit,});
     }
 
 }

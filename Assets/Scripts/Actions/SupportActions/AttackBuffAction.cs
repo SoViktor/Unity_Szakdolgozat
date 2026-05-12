@@ -1,3 +1,4 @@
+using System;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -15,14 +16,5 @@ public class AttackBuffAction : BuffAction
 
     protected override int Duration => 2 ;
 
-    public override string GetActionName()
-    {
-        return StatusName;
-    }
 
-    protected override void DoAction()
-    {
-        BuffDebuffEffects buffEffect = targetUnit.AddComponent<BuffDebuffEffects>();
-        buffEffect.SetUpBuffDebuffEffects(StatType, Amount, Duration, StatusName);
-    }
 }

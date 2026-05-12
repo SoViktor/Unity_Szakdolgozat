@@ -686,6 +686,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SummonAction
   summonedUnit: {fileID: 1595546417134996679, guid: cdf1a2ee469a8674083c7b0ff5cc987e, type: 3}
+--- !u!114 &555364712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 555364690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2044464d49deed048adaf240f1ce5d46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DexterityBuff
 --- !u!1001 &575881896
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3871,6 +3883,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1458777600085568619, guid: 72a93250b04e4b64ba348ffe5208b954, type: 3}
       insertIndex: -1
       addedObject: {fileID: 555364700}
+    - targetCorrespondingSourceObject: {fileID: 1458777600085568619, guid: 72a93250b04e4b64ba348ffe5208b954, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 555364712}
   m_SourcePrefab: {fileID: 100100000, guid: 72a93250b04e4b64ba348ffe5208b954, type: 3}
 --- !u!1 &2117303155
 GameObject:

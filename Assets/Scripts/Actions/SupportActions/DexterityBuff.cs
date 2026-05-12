@@ -1,16 +1,20 @@
+using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class DexterityBuff : MonoBehaviour
+public class DexterityBuff : BuffAction
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    protected override StatTypes StatType => StatTypes.Dexterity;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    protected override string StatusName => "Dexteity Buff";
+
+    protected override float Amount =>1000;
+
+    protected override int Duration =>1;
+
+    protected override int range => 5;
+
+    protected override bool isCirculiar => true;
+
+
 }

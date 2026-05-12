@@ -1,7 +1,10 @@
+using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public abstract class BuffAction : SupportAction
 {
+    public event EventHandler<ActionArgsWithTwoUnits> OnBuffActionStarted;
     protected abstract StatTypes StatType {get;}
 
     protected abstract string StatusName {get;}
@@ -14,5 +17,13 @@ public abstract class BuffAction : SupportAction
     {
         return StatusName;
     }
+
+    protected override void DoAction()
+    {
+        BuffDebuffEffects buffEffect = targetUnit.AddComponent<BuffDebuffEffects>();
+        buffEffect.SetUpBuffDebuffEffects(StatType, Amount, Duration, StatusName);
+        OnBuffActionStarted?.Invoke(this, new ActionArgsWithTwoUnits{targetUnit = targetUnit, activeUnit = unit});
+    }
+
 
 }

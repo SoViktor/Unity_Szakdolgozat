@@ -137,7 +137,7 @@ public class Unit : MonoBehaviour
     {
         if (this == e.unit)
         {
-            OnUnitStatusEffectChanged.Invoke(this, EventArgs.Empty);
+            OnUnitStatusEffectChanged?.Invoke(this, EventArgs.Empty);
         }
     }
     
@@ -145,7 +145,7 @@ public class Unit : MonoBehaviour
     {
         if (this == e.unit)
         {
-            OnUnitStatusEffectChanged.Invoke(this, EventArgs.Empty);
+            OnUnitStatusEffectChanged?.Invoke(this, EventArgs.Empty);
             Debug.Log("Unit sent event about statusEffect removal");
         }
     }

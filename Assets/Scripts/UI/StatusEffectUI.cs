@@ -8,6 +8,9 @@ public class StatusEffectUI : MonoBehaviour
     [SerializeField]private Transform statusEffectIcon;
     [SerializeField]private Unit thisUnit;
 
+    private float delay=0;
+    private bool statusEffectsChanged=false;
+
     private Camera mainCamera;
 
     private void Awake()
@@ -25,7 +28,10 @@ public class StatusEffectUI : MonoBehaviour
         foreach (Transform item in container)
         {
 
-            Destroy(item.gameObject);
+            if (item != null)
+            {
+                Destroy(item.gameObject);
+            }
         }
 
         foreach (StatusEffects item in thisUnit.GetComponents<StatusEffects>())
@@ -42,15 +48,25 @@ public class StatusEffectUI : MonoBehaviour
 
     private void Unit_OnUnitStatusEffectChanged(object sender, EventArgs e)
     {
-        UpdateVisual();
+        delay = 20;
+        statusEffectsChanged = true;
         Debug.Log("Update visula Status Effect UI");
     }
-
 
 
     private void LateUpdate()
     {
         transform.forward = mainCamera.transform.forward;
+
+        if (statusEffectsChanged)
+        {
+            if (delay <= 0)
+            {
+                UpdateVisual();
+                statusEffectsChanged = false;
+            }
+            delay --;
+        }
     }
 
 
