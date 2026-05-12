@@ -3,6 +3,9 @@ using UnityEngine;
 
 public abstract class StatusEffects : MonoBehaviour
 {
+    public static event EventHandler<EventArgsWithOneUnit> OnAnyStatusEffectApplied;
+    public static event EventHandler<EventArgsWithOneUnit> OnAnyStatusEffectRemoved;
+
     protected Unit unit;
     protected int duration ;
 
@@ -15,7 +18,6 @@ public abstract class StatusEffects : MonoBehaviour
     protected void Start() 
     {
         TurnSystem.Instance.OnTurnChanged += TurnSystem_OnTurnChanged;
-        ApplyStatusEffects();
     }
 
     public abstract String GetStatusEffectName();
@@ -32,17 +34,22 @@ public abstract class StatusEffects : MonoBehaviour
         Unit testUnit = UnitActionSystem.Instance.GetSelectedUnit();
         if (testUnit == unit)
         {
-            if (duration >= 0)
+            if (duration <= 0)
             {
-                Destroy(gameObject);
+                Debug.Log("duration <=0");
+                EndStatusEffect();
+                Destroy(this);
             }
             duration--;
             DoEffectOnEveryTurn();
+            Debug.Log(unit.GetStatSystem().GetAttack());
         }
     }
 
     protected void OnDestroy()
     {
+        Debug.Log("StatusEffect Destroyed");
+        OnAnyStatusEffectRemoved.Invoke(this, new EventArgsWithOneUnit{unit = unit});
         TurnSystem.Instance.OnTurnChanged -= TurnSystem_OnTurnChanged;
 
     }
@@ -54,5 +61,11 @@ public abstract class StatusEffects : MonoBehaviour
         this.duration = duration;
     }
 
+    protected abstract void EndStatusEffect();
+
+    protected void TriggerStatusEffectAdded()
+    {
+        OnAnyStatusEffectApplied.Invoke(this, new EventArgsWithOneUnit{unit = unit,});
+    }
 
 }

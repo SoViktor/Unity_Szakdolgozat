@@ -1,28 +1,28 @@
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class AttackBuffAction : SupportAction
+public class AttackBuffAction : BuffAction
 {
     protected override int range => 5;
 
     protected override bool isCirculiar => true;
 
-    private StatTypes statType = StatTypes.Attack;
+    protected override StatTypes StatType => StatTypes.Attack;
 
-    private string statusName = "Attack Buff";
+    protected override string StatusName => "Attack Buff";
 
-    private float amount = 20;
+    protected override float Amount => 20;
 
-    private int duration = 3;
+    protected override int Duration => 2 ;
 
     public override string GetActionName()
     {
-        return statusName;
+        return StatusName;
     }
 
     protected override void DoAction()
     {
-        BuffDebuffEffects buffEffect = new BuffDebuffEffects(statType, amount, duration, statusName);
-
+        BuffDebuffEffects buffEffect = targetUnit.AddComponent<BuffDebuffEffects>();
+        buffEffect.SetUpBuffDebuffEffects(StatType, Amount, Duration, StatusName);
     }
 }

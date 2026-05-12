@@ -1,10 +1,10 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
-
 public class Unit : MonoBehaviour
 {
     public static event EventHandler OnAnyUnitDied;
+    public event EventHandler OnUnitStatusEffectChanged;
     [SerializeField] private int actionPointsMax;
     [SerializeField] private bool isEnemy;
 
@@ -24,6 +24,8 @@ public class Unit : MonoBehaviour
         GridPosition gridPosition = LevelGrid.Instance.GetGridPosition(transform.position);
         
         statSystem.OnDeath += StatSystem_OnDeath;
+        StatusEffects.OnAnyStatusEffectApplied += StatusEffects_OnAnyStatusEffectApplied;
+        StatusEffects.OnAnyStatusEffectRemoved += StatusEffects_OnAnyStatusEffectRemoved;
         actionPoints = actionPointsMax;
     }
 
@@ -129,6 +131,30 @@ public class Unit : MonoBehaviour
         OnAnyUnitDied?.Invoke(this, EventArgs.Empty);
         
         Destroy(gameObject);
+    }
+
+    private void StatusEffects_OnAnyStatusEffectApplied(object sender,EventArgsWithOneUnit e)
+    {
+        if (this == e.unit)
+        {
+            OnUnitStatusEffectChanged.Invoke(this, EventArgs.Empty);
+        }
+    }
+    
+    private void StatusEffects_OnAnyStatusEffectRemoved(object sender, EventArgsWithOneUnit e)
+    {
+        if (this == e.unit)
+        {
+            OnUnitStatusEffectChanged.Invoke(this, EventArgs.Empty);
+            Debug.Log("Unit sent event about statusEffect removal");
+        }
+    }
+
+    void OnDestroy()
+    {
+        statSystem.OnDeath -= StatSystem_OnDeath;
+        StatusEffects.OnAnyStatusEffectApplied -= StatusEffects_OnAnyStatusEffectApplied;
+        StatusEffects.OnAnyStatusEffectRemoved -= StatusEffects_OnAnyStatusEffectRemoved;
     }
 
 

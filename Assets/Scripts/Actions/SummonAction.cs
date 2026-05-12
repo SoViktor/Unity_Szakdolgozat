@@ -85,4 +85,9 @@ public class SummonAction : UnitTargetingAction
         transform.forward = Vector3.Lerp(transform.forward, summonedUnitDirection, Time.deltaTime * rotationSpeed);
 
     }
+
+    protected override void DoFinished()
+    {
+        OnSummonFinished?.Invoke(this, EventArgs.Empty);
+    }
 }

@@ -19,7 +19,7 @@ public class UnitHealthBarUI : MonoBehaviour
     {
         if (unit == null)
         {
-            Destroy(gameObject);
+            Destroy(this);
             return;
         }
 

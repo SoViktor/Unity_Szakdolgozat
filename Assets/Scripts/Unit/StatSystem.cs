@@ -167,33 +167,33 @@ public class StatSystem : MonoBehaviour
 
     public void ModifyAttack(float amount)
     {
-        attack -= amount;
+        attack += amount;
     }
 
     public void ModifyMagicAttack(float amount)
     {
-        magicAttack -= amount;
+        magicAttack += amount;
     }
 
     public void ModifyDefence(float amount)
     {
-        defence -= amount;
+        defence += amount;
     }
 
     public void ModifyMagicDefence(float amount)
     {
-        magicDefence -= amount;
+        magicDefence += amount;
     }
 
 
     public void ModifyMoveRange(int amount)
     {
-        moveRange -= amount;
+        moveRange += amount;
     }
     public void ModifyDexterity(float amount)
     {
         int oldBaseActioValue = baseActionValue; 
-        dexterity -= amount;
+        dexterity += amount;
 
         BaseActionValueSetUp();
 

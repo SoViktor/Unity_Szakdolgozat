@@ -674,6 +674,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6031012854187117108, guid: 6a33452aab7b66b4f9f7c14debf0d714, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4176156265732853789}
+    - targetCorrespondingSourceObject: {fileID: 6031012854187117108, guid: 6a33452aab7b66b4f9f7c14debf0d714, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -1006630655610396400}
   m_SourcePrefab: {fileID: 100100000, guid: 6a33452aab7b66b4f9f7c14debf0d714, type: 3}
 --- !u!4 &277755767057633740 stripped
 Transform:
@@ -710,3 +713,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HealAction
   healAmount: 20
+--- !u!114 &-1006630655610396400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1458777600085568619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d9cfec9b8b3a044da17ac842e11a8aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AttackBuffAction
