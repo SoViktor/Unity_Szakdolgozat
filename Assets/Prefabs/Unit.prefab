@@ -489,7 +489,7 @@ MonoBehaviour:
   baseAttack: 100
   baseMagicAttack: 100
   baseDexterity: 100
-  baseMoveDistance: 5
+  baseMoveRange: 5
 --- !u!114 &8091376678976239172
 MonoBehaviour:
   m_ObjectHideFlags: 0

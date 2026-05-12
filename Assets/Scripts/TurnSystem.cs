@@ -8,7 +8,6 @@ public class TurnSystem : MonoBehaviour
     public static TurnSystem Instance {get; private set;}
 
     public event EventHandler OnTurnChanged;
-    public event EventHandler OnAnyTeamWin;
     public event EventHandler OnFinishedUpdateOnTurnOrder;
     private int turnNumber = 1;
 
@@ -18,7 +17,6 @@ public class TurnSystem : MonoBehaviour
     private List<Unit> unitList = new List<Unit>();
     private Unit activeUnit;
 
-    private bool hasPlayerWon;
 
     private void Awake()
     {
@@ -143,48 +141,12 @@ public class TurnSystem : MonoBehaviour
         {
             unitList.Remove(deadUnit);
         }
-        CheckForWictory();
         ReorderUnitList();
         OnFinishedUpdateOnTurnOrder?.Invoke(this, EventArgs.Empty);
 
     }
 
-    private void CheckForWictory()
-    {
-        
-        bool hasEnemyAnyMember = false;
-        bool hasPlayerAnyMember = false;
 
-        foreach (Unit item in unitList)
-        {
-            if (item == null)
-            {
-                continue;
-            }
-
-            if (item.IsEnemy())
-            {
-                hasEnemyAnyMember = true;
-            }
-            else
-            {
-                hasPlayerAnyMember = true;
-            }
-        }
-
-        if (hasEnemyAnyMember && hasPlayerAnyMember)
-        {
-            return;
-        }
-
-        hasPlayerWon = hasPlayerAnyMember;
-        OnAnyTeamWin?.Invoke(this, EventArgs.Empty);
-    }
-
-    public bool DidPlayerWin()
-    {
-        return hasPlayerWon;
-    }
 
     public void AddUnitToTurnSystem(Unit unit)
     {

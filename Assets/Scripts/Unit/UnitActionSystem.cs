@@ -7,7 +7,6 @@ public class UnitActionSystem : MonoBehaviour
 {
 
     public static UnitActionSystem Instance {get; private set;}
-    public event EventHandler OnSelectedUnitChange;
     public event EventHandler OnSelectedActionChange;
     public event EventHandler<bool> OnBusyChanged;
     public event EventHandler OnActionStarted;
@@ -91,9 +90,7 @@ public class UnitActionSystem : MonoBehaviour
     {
         selectedUnit = unit;
         SetSelectedAction(unit.GetMoveAction());
-
-        OnSelectedUnitChange?.Invoke(this, EventArgs.Empty);
-        
+       
     }
 
     public void SetSelectedAction(BaseAction baseAction)

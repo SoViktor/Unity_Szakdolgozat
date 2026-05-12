@@ -13,7 +13,7 @@ public class StatSystem : MonoBehaviour
     [SerializeField] private float baseAttack;
     [SerializeField] private float baseMagicAttack;
     [SerializeField] private float baseDexterity;
-    [SerializeField] private int baseMoveDistance;
+    [SerializeField] private int baseMoveRange;
 
     private int healthPoints;
     private float defence;
@@ -21,7 +21,7 @@ public class StatSystem : MonoBehaviour
     private float attack;
     private float magicAttack;
     private float dexterity;
-    private int moveDistance;
+    private int moveRange;
 
     private int baseActionValue;
     private int actionValue;
@@ -36,9 +36,11 @@ public class StatSystem : MonoBehaviour
         attack = baseAttack;
         magicAttack = baseMagicAttack;
         dexterity = baseDexterity;
-        moveDistance = baseMoveDistance;
+        moveRange = baseMoveRange;
         baseRandom = UnityEngine.Random.value;
         BaseActionValueSetUp();
+        actionValue = baseActionValue;
+
 
     }
 
@@ -129,9 +131,9 @@ public class StatSystem : MonoBehaviour
     {
         return dexterity;
     }
-    public int GetMoveDistance()
+    public int GetMoveRange()
     {
-        return moveDistance;
+        return moveRange;
     }
 
     public float GetBaseRandom()
@@ -151,7 +153,6 @@ public class StatSystem : MonoBehaviour
     public void BaseActionValueSetUp()
     {
         baseActionValue = Mathf.RoundToInt((100 / dexterity) * 100);
-        actionValue = baseActionValue;
     }
 
     public void DecreaseActionValue(int amount)
@@ -164,4 +165,38 @@ public class StatSystem : MonoBehaviour
         actionValue = baseActionValue;
     }
 
+    public void ModifyAttack(float amount)
+    {
+        attack -= amount;
+    }
+
+    public void ModifyMagicAttack(float amount)
+    {
+        magicAttack -= amount;
+    }
+
+    public void ModifyDefence(float amount)
+    {
+        defence -= amount;
+    }
+
+    public void ModifyMagicDefence(float amount)
+    {
+        magicDefence -= amount;
+    }
+
+
+    public void ModifyMoveRange(int amount)
+    {
+        moveRange -= amount;
+    }
+    public void ModifyDexterity(float amount)
+    {
+        int oldBaseActioValue = baseActionValue; 
+        dexterity -= amount;
+
+        BaseActionValueSetUp();
+
+        actionValue = Mathf.RoundToInt(actionValue * ((float)baseActionValue / oldBaseActioValue));
+    }
 }

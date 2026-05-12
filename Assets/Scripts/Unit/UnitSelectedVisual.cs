@@ -13,11 +13,11 @@ public class NewMonoBehaviourScript : MonoBehaviour
 
     private void Start()
     {
-        UnitActionSystem.Instance.OnSelectedUnitChange +=UnitActionSystem_OnSelectedUnitChanged;
+        TurnSystem.Instance.OnTurnChanged += TurnSystem_OnTurnChanged;
         UpdateVisual();
     }
 
-    private void UnitActionSystem_OnSelectedUnitChanged(object sender, EventArgs empty)
+    private void TurnSystem_OnTurnChanged(object sender, EventArgs empty)
     {
         UpdateVisual();
     }
@@ -35,7 +35,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
 
     private void OnDestroy()
     {
-        UnitActionSystem.Instance.OnSelectedUnitChange -=UnitActionSystem_OnSelectedUnitChanged;
+        TurnSystem.Instance.OnTurnChanged -=TurnSystem_OnTurnChanged;
 
     }
 }

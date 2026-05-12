@@ -56,7 +56,7 @@ public class MoveAction : BaseAction
             GridPosition unitGridPosition = unit.GetGridPosition();
             StatSystem statSystem = unit.GetStatSystem();
 
-            int range = statSystem.GetMoveDistance();
+            int range = statSystem.GetMoveRange();
 
             for (int x = -range; x <= range; x++)
             {

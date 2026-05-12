@@ -9,7 +9,7 @@ public class GameEndUI : MonoBehaviour
 
     private void Start()
     {
-        TurnSystem.Instance.OnAnyTeamWin += TurnSystem_OnAnyTeamWin;
+        GameEndSystem.Instance.OnAnyTeamWin += GameEndSystem_OnAnyTeamWin;
         HideGameEndUI();
 
     }
@@ -39,9 +39,9 @@ public class GameEndUI : MonoBehaviour
         playerLoseUI.SetActive(true);
     }
 
-    private void TurnSystem_OnAnyTeamWin(object sender, EventArgs e)
+    private void GameEndSystem_OnAnyTeamWin(object sender, EventArgs e)
     {
-        bool hasPlayerWon = TurnSystem.Instance.DidPlayerWin();
+        bool hasPlayerWon = GameEndSystem.Instance.DidPlayerWin();
 
         Debug.Log(hasPlayerWon);
 
@@ -56,7 +56,7 @@ public class GameEndUI : MonoBehaviour
 
     private void OnDestroy()
     {
-        TurnSystem.Instance.OnAnyTeamWin -= TurnSystem_OnAnyTeamWin;
+        GameEndSystem.Instance.OnAnyTeamWin -= GameEndSystem_OnAnyTeamWin;
     }
 
 
