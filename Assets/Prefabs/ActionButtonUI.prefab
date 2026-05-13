@@ -170,10 +170,18 @@ MonoBehaviour:
   textMeshProUGUI: {fileID: 7021780261426990231}
   button: {fileID: 1576167945124341366}
   selectedGameObject: {fileID: 3550038467320180925}
-  defaultButton: {fileID: 11400000, guid: bba7a2d210cb93d49b422ffc8f1e801b, type: 2}
-  attackStyle: {fileID: 11400000, guid: 679f2688589a31e4493a11218906c94a, type: 2}
-  summonStyle: {fileID: 11400000, guid: 5656272eec45b164eb6febfd2b35c416, type: 2}
-  supportStyle: {fileID: 11400000, guid: d16ed28105872984b9707de23b527f80, type: 2}
+  buttonStyleColors:
+  - actionType: 0
+    buttonStyle: {fileID: 11400000, guid: bba7a2d210cb93d49b422ffc8f1e801b, type: 2}
+  - actionType: 1
+    buttonStyle: {fileID: 11400000, guid: 679f2688589a31e4493a11218906c94a, type: 2}
+  - actionType: 2
+    buttonStyle: {fileID: 11400000, guid: 5656272eec45b164eb6febfd2b35c416, type: 2}
+  - actionType: 3
+    buttonStyle: {fileID: 11400000, guid: d16ed28105872984b9707de23b527f80, type: 2}
+  - actionType: 4
+    buttonStyle: {fileID: 11400000, guid: 733570dcf6ba4a94d86fddf44b8b6f41, type: 2}
+  defaultButtonStyle: {fileID: 11400000, guid: bba7a2d210cb93d49b422ffc8f1e801b, type: 2}
 --- !u!1 &3550038467320180925
 GameObject:
   m_ObjectHideFlags: 0

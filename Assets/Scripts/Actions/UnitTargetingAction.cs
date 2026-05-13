@@ -16,7 +16,7 @@ public abstract class UnitTargetingAction : BaseAction
 
     protected Unit targetUnit;
 
-    protected abstract int range {get;}
+    protected abstract int Range {get;}
 
 
     protected void Update()
@@ -107,7 +107,7 @@ public abstract class UnitTargetingAction : BaseAction
 
     public int GetRange()
     {
-        return range;
+        return Range;
     }
 
 

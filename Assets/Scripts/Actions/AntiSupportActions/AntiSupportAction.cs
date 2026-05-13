@@ -2,18 +2,11 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class SupportAction : UnitTargetingAction
+public abstract class AntiSupportAction : UnitTargetingAction
 {
-    protected override ActionTypes ActionType => ActionTypes.SupportAction;
+    protected override ActionTypes ActionType => ActionTypes.AntiSupportAction;
 
 
-    public override void TakeAction(GridPosition gridPosition, Action onActionComplete)
-    {
-        ActionStart(onActionComplete);
-        targetUnit = LevelGrid.Instance.GetUnitOnGridPosition(gridPosition);
-
-        SetUpReady();
-    }
     public override List<GridPosition> GetValidGridPositionList()
     {
         List<GridPosition> validGridPositionList = new();
@@ -30,19 +23,29 @@ public abstract class SupportAction : UnitTargetingAction
                 {
                     continue;
                 }
-
+                if (unitGridPosition == testGridPosition)
+                {
+                    continue;
+                }
                 if (!LevelGrid.Instance.HasAnyUnitOnGridPosition(testGridPosition))
                 {
                     continue;
                 }
+                if (IsCirculiar)
+                {
+                    int testDistance = Mathf.Abs(x) + Mathf.Abs(z);
+                    if (testDistance > Range)
+                    {
+                        continue;
+                    }
+                }
 
-
-                Unit testTargetUnit = LevelGrid.Instance.GetUnitOnGridPosition(testGridPosition);
+                /*Unit testTargetUnit = LevelGrid.Instance.GetUnitOnGridPosition(testGridPosition);
                 
-                if (testTargetUnit.IsEnemy() != unit.IsEnemy())
+                if (testTargetUnit.IsEnemy() == unit.IsEnemy())
                 {
                     continue;
-                }
+                } */
 
                 validGridPositionList.Add(testGridPosition);
             }
@@ -50,7 +53,15 @@ public abstract class SupportAction : UnitTargetingAction
         }
 
         return validGridPositionList;
-    }    
+    }
 
+    public override void TakeAction(GridPosition gridPosition, Action onActionComplete)
+    {
+        ActionStart(onActionComplete);
+        targetUnit = LevelGrid.Instance.GetUnitOnGridPosition(gridPosition);
+
+        SetUpReady();
+        
+    }
 
 }

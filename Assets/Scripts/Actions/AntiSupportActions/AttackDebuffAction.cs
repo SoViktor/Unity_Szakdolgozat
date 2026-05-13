@@ -1,8 +1,6 @@
-using System;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class AttackBuffAction : BuffAction
+public class AttackDebuffAction : DebuffAction
 {
     protected override int Range => 5;
 
@@ -12,7 +10,7 @@ public class AttackBuffAction : BuffAction
 
     protected override string StatusName => "Attack Buff";
 
-    protected override float Amount => 20;
+    protected override float Amount => -20;
 
     protected override int Duration => 2 ;
 

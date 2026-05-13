@@ -8,9 +8,9 @@ public class HealAction : SupportAction
     public event EventHandler<ActionArgsWithTwoUnits> OnStartHeal;
 
 
-    protected override int range => 5;
+    protected override int Range => 5;
 
-    protected override bool isCirculiar => true;
+    protected override bool IsCirculiar => true;
 
     public override string GetActionName()
     {

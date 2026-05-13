@@ -13,7 +13,9 @@ public class MoveAction : BaseAction
 
     private Vector3 targetPosition;
 
-    protected override bool isCirculiar => false;
+    protected override bool IsCirculiar => false;
+
+    protected override ActionTypes ActionType => ActionTypes.MoveAction;
 
     protected override void Awake()
     {
@@ -32,7 +34,7 @@ public class MoveAction : BaseAction
         Vector3 moveDirection = (targetPosition - transform.position).normalized;
         if (Vector3.Distance(transform.position, targetPosition) > stoppingDistance)
         {
-        transform.position += moveDirection * Time.deltaTime * moveSpeed;    
+        transform.position += moveSpeed * Time.deltaTime * moveDirection;    
             
         } else
         {

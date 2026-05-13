@@ -1,20 +1,17 @@
-using System;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class DexterityBuff : BuffAction
+public class DexterityDebuffAction : DebuffAction
 {
     protected override StatTypes StatType => StatTypes.Dexterity;
 
-    protected override string StatusName => "Dexteity Buff";
+    protected override string StatusName => "Dexteity Debuff";
 
-    protected override float Amount =>1000;
+    protected override float Amount =>-1000f;
 
     protected override int Duration =>1;
 
     protected override int Range => 5;
 
     protected override bool IsCirculiar => true;
-
 
 }

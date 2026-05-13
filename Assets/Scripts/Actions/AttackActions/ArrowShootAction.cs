@@ -3,15 +3,15 @@ using UnityEngine;
 
 public class ArrowShootAction : AttackAction
 {
-    protected override int range => 7;
+    protected override int Range => 7;
 
-    protected override DamageTypes damageType => DamageTypes.Plant;
+    protected override DamageTypes DamageType => DamageTypes.Plant;
 
-    protected override bool isMagical => false;
+    protected override bool IsMagical => false;
 
-    protected override float attackValue => 50f;
+    protected override float AttackValue => 50f;
 
-    protected override bool isCirculiar => true;
+    protected override bool IsCirculiar => true;
 
     public event EventHandler<ActionArgsWithTwoUnits> OnStartArrowShootAction;
 

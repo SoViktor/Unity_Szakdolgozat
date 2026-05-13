@@ -1,11 +1,13 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class StatSystem : MonoBehaviour
 {
-    public event EventHandler OnDeath;
+    private static readonly WaitForSeconds _waitForSeconds0_05 = new(0.05f);
 
+    public event EventHandler OnDeath;
     [SerializeField] private DamageTypes unitType;
     [SerializeField] private int baseHealthPoints;
     [SerializeField] private float baseDefence;
@@ -46,7 +48,7 @@ public class StatSystem : MonoBehaviour
 
     public void Damage(bool isMagical, DamageTypes damageType, float damageValue, float attackStat)
     {
-        TypeSystem typeSystem = new TypeSystem();
+        TypeSystem typeSystem = new();
         float multiplier = typeSystem.GetMultiplier(damageType, unitType);
         damageValue *= multiplier;
 
@@ -95,6 +97,32 @@ public class StatSystem : MonoBehaviour
             newHealtPoints = baseHealthPoints;
         }
         healthPoints = newHealtPoints;
+    }
+
+    private void DoTDamage(DamageTypes damageType, float damageValue)
+    {
+        TypeSystem typeSystem = new();
+        float multiplier = typeSystem.GetMultiplier(damageType, unitType);
+        int damageDealt = Mathf.RoundToInt(damageValue * multiplier);
+
+        if (damageDealt >= healthPoints)
+        {
+            StartCoroutine(HandelDotDeath());
+        }
+        else
+        {
+            healthPoints -= damageDealt;
+        }
+    }
+
+    private IEnumerator HandelDotDeath()
+    {
+        TurnSystem.Instance.Nextturn();
+
+        yield return _waitForSeconds0_05;
+
+        Death();
+
     }
 
     private void Death()
@@ -167,33 +195,82 @@ public class StatSystem : MonoBehaviour
 
     public void ModifyAttack(float amount)
     {
-        attack += amount;
+        if ((attack + amount) > 1)
+        {
+            attack += amount;
+        }
+        else
+        {
+            attack = 1;
+            Debug.Log("Unnormal stat change");
+        }
     }
 
     public void ModifyMagicAttack(float amount)
     {
-        magicAttack += amount;
+        if ((magicAttack + amount) > 1)
+        {
+            magicAttack += amount;
+        }
+        else
+        {
+            magicAttack = 1;
+            Debug.Log("Unnormal stat change");
+
+        }
     }
 
     public void ModifyDefence(float amount)
     {
-        defence += amount;
+        if ((defence + amount) > 1)
+        {
+            defence += amount;
+        }
+        else
+        {
+            defence = 1;
+            Debug.Log("Unnormal stat change");
+        }
     }
 
     public void ModifyMagicDefence(float amount)
     {
-        magicDefence += amount;
+        if ((magicDefence + amount) > 1)
+        {
+            magicDefence += amount;
+        }
+        else
+        {
+            magicDefence = 1;
+            Debug.Log("Unnormal stat change");
+        }
     }
 
 
     public void ModifyMoveRange(int amount)
     {
-        moveRange += amount;
+        if ((moveRange + amount) > 1)
+        {
+            moveRange += amount;
+        }
+        else
+        {
+            moveRange = 1;
+            Debug.Log("Unnormal stat change");
+        }
     }
     public void ModifyDexterity(float amount)
     {
         int oldBaseActioValue = baseActionValue; 
-        dexterity += amount;
+        if ((dexterity + amount) > 10)
+        {
+            dexterity += amount;
+        }
+        else
+        {
+            dexterity = 10;
+            Debug.Log("Unnormal stat change");
+        }
 
         BaseActionValueSetUp();
 

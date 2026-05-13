@@ -11,9 +11,11 @@ public class SummonAction : UnitTargetingAction
  
     private Vector3 summonWorldPosition;
 
-    protected override bool isCirculiar => false;
+    protected override bool IsCirculiar => false;
 
-    protected override int range => 3;
+    protected override int Range => 3;
+
+    protected override ActionTypes ActionType => ActionTypes.SummonAction;
 
     public override string GetActionName()
     {
@@ -22,14 +24,14 @@ public class SummonAction : UnitTargetingAction
 
     public override List<GridPosition> GetValidGridPositionList()
         {
-            List<GridPosition> validGridPositionList = new List<GridPosition>();
+            List<GridPosition> validGridPositionList = new();
             GridPosition unitGridPosition = unit.GetGridPosition();
 
-            for (int x = -range; x <= range; x++)
+            for (int x = -Range; x <= Range; x++)
             {
-                for (int z = -range; z <= range; z++)
+                for (int z = -Range; z <= Range; z++)
                 {
-                    GridPosition offetGridPosition = new GridPosition (x,z);
+                    GridPosition offetGridPosition = new(x,z);
                     GridPosition testGridPosition = unitGridPosition + offetGridPosition;
 
                     if(!LevelGrid.Instance.IsValidPosition(testGridPosition))

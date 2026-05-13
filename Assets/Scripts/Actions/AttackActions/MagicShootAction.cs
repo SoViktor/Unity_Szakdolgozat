@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class MagicShootAction : AttackAction
 {
-    protected override int range => 7;
+    protected override int Range => 7;
 
-    protected override DamageTypes damageType => DamageTypes.Blight;
+    protected override DamageTypes DamageType => DamageTypes.Blight;
 
-    protected override bool isMagical => true;
+    protected override bool IsMagical => true;
 
-    protected override float attackValue => 20f;
+    protected override float AttackValue => 20f;
 
-    protected override bool isCirculiar => true;
+    protected override bool IsCirculiar => true;
 
     public event EventHandler<ActionArgsWithTwoUnits> OnStartMagicShootAction;
     

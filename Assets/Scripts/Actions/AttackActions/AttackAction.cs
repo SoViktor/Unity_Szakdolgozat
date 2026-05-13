@@ -4,22 +4,24 @@ using UnityEngine;
 
 public abstract class AttackAction : UnitTargetingAction
 {
-    protected abstract DamageTypes damageType {get;}
-    protected abstract bool isMagical{get;}
-    protected abstract float attackValue{get;}
+    protected abstract DamageTypes DamageType {get;}
+    protected abstract bool IsMagical{get;}
+    protected abstract float AttackValue{get;}
     protected float attackStat;
+    protected override ActionTypes ActionType => ActionTypes.AttackAction;
+
 
 
     public override List<GridPosition> GetValidGridPositionList()
     {
-        List<GridPosition> validGridPositionList = new List<GridPosition>();
+        List<GridPosition> validGridPositionList = new();
         GridPosition unitGridPosition = unit.GetGridPosition();
 
-        for (int x = -range; x <= range; x++)
+        for (int x = -Range; x <= Range; x++)
         {
-            for (int z = -range; z <= range; z++)
+            for (int z = -Range; z <= Range; z++)
             {
-                GridPosition offsetGridPosition = new GridPosition (x,z);
+                GridPosition offsetGridPosition = new(x,z);
                 GridPosition testGridPosition = unitGridPosition + offsetGridPosition;
 
                 if(!LevelGrid.Instance.IsValidPosition(testGridPosition))
@@ -34,10 +36,10 @@ public abstract class AttackAction : UnitTargetingAction
                 {
                     continue;
                 }
-                if (isCirculiar)
+                if (IsCirculiar)
                 {
                     int testDistance = Mathf.Abs(x) + Mathf.Abs(z);
-                    if (testDistance > range)
+                    if (testDistance > Range)
                     {
                         continue;
                     }
@@ -70,7 +72,7 @@ public abstract class AttackAction : UnitTargetingAction
     protected void SetAttackStat()
     {
         StatSystem statSystem = unit.GetStatSystem();
-        if (isMagical)
+        if (IsMagical)
         {
             attackStat = statSystem.GetMagicAttack();
         }
@@ -84,7 +86,7 @@ public abstract class AttackAction : UnitTargetingAction
     {
         SetAttackStat();
         StatSystem targetUnitStateSystem = targetUnit.GetStatSystem();
-        targetUnitStateSystem.Damage(isMagical, damageType, attackValue, attackStat );
+        targetUnitStateSystem.Damage(IsMagical, DamageType, AttackValue, attackStat );
     }
 
 }

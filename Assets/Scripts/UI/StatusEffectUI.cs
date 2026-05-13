@@ -1,15 +1,14 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class StatusEffectUI : MonoBehaviour
 {
-
+    private static WaitForSeconds _waitForSeconds0_05 = new(0.05f);
     [SerializeField]private Transform container;
     [SerializeField]private Transform statusEffectIcon;
     [SerializeField]private Unit thisUnit;
 
-    private float delay=0;
-    private bool statusEffectsChanged=false;
 
     private Camera mainCamera;
 
@@ -20,7 +19,8 @@ public class StatusEffectUI : MonoBehaviour
 
     private void Start() 
     {
-        thisUnit.OnUnitStatusEffectChanged += Unit_OnUnitStatusEffectChanged;
+        StatusEffects.OnAnyStatusEffectApplied += StatusEffects_OnAnyStatusEffectApplied;
+        StatusEffects.OnAnyStatusEffectRemoved += StatusEffects_OnAnyStatusEffectRemoved;
     }
 
     private void UpdateVisual()
@@ -46,27 +46,39 @@ public class StatusEffectUI : MonoBehaviour
         
     }
 
-    private void Unit_OnUnitStatusEffectChanged(object sender, EventArgs e)
+    private void StatusEffects_OnAnyStatusEffectApplied(object sender, EventArgsWithOneUnit e)
     {
-        delay = 20;
-        statusEffectsChanged = true;
-        Debug.Log("Update visula Status Effect UI");
+        if (e.unit == thisUnit)
+        {
+            UpdateVisual();
+        }
+    }
+
+    private void StatusEffects_OnAnyStatusEffectRemoved(object sender, EventArgsWithOneUnit e)
+    {
+        if (e.unit == thisUnit)
+        {
+            StartCoroutine(HandelStatusEffectIconRemoval());
+        }
+    }
+
+    private IEnumerator HandelStatusEffectIconRemoval()
+    {
+        yield return _waitForSeconds0_05;
+        UpdateVisual();
     }
 
 
     private void LateUpdate()
     {
         transform.forward = mainCamera.transform.forward;
+    }
 
-        if (statusEffectsChanged)
-        {
-            if (delay <= 0)
-            {
-                UpdateVisual();
-                statusEffectsChanged = false;
-            }
-            delay --;
-        }
+    private void OnDestroy()
+    {
+        StatusEffects.OnAnyStatusEffectApplied -= StatusEffects_OnAnyStatusEffectApplied;
+        StatusEffects.OnAnyStatusEffectRemoved -= StatusEffects_OnAnyStatusEffectRemoved;
+
     }
 
 

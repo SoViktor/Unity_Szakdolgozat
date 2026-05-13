@@ -13,6 +13,7 @@ public abstract class BuffAction : SupportAction
 
     protected abstract int Duration{get;}
 
+
     public override string GetActionName()
     {
         return StatusName;

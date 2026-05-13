@@ -78,7 +78,7 @@ public class StatusEffectSingelUI : MonoBehaviour
                 return item.color;
             }
         }
-        Debug.LogError("Material missing" + statType);
+        Debug.LogError("Color missing" + statType);
         return Color.white;
     }
 }

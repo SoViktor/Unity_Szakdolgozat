@@ -125,15 +125,25 @@ public class GridSystemVisual : MonoBehaviour
                     attackAction.GetIsCirculiar(), 
                     GridVisualVariants.AttackRange);
             break;
+
         case SummonAction:
             gridVisualVariant = GridVisualVariants.Summon;
             break;
+
         case SupportAction supportAction:
             gridVisualVariant = GridVisualVariants.Support;
             ShowRange(activeUnit.GetGridPosition(),
                         supportAction.GetRange(),
                         supportAction.GetIsCirculiar(),
                         GridVisualVariants.SupportRange );
+            break;
+
+        case AntiSupportAction antiSupportAction:
+            gridVisualVariant = GridVisualVariants.Debuff;
+            ShowRange(activeUnit.GetGridPosition(),
+                        antiSupportAction.GetRange(),
+                        antiSupportAction.GetIsCirculiar(),
+                        GridVisualVariants.DebuffRange);
             break;
 
         default:

@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class SlashAction : AttackAction
 {
-    protected override int range => 1;
+    protected override int Range => 1;
 
-    protected override DamageTypes damageType => DamageTypes.Steel;
+    protected override DamageTypes DamageType => DamageTypes.Steel;
 
-    protected override bool isMagical => false;
+    protected override bool IsMagical => false;
 
-    protected override float attackValue => 20f;
+    protected override float AttackValue => 20f;
 
-    protected override bool isCirculiar => false;
+    protected override bool IsCirculiar => false;
 
     public event EventHandler OnStartSlashAction;
 
