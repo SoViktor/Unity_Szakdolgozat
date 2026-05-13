@@ -55,8 +55,6 @@ public class StatSystem : MonoBehaviour
         float random = UnityEngine.Random.Range(0.9f, 1.1f);
         damageValue *= random;
 
-        Debug.Log(random);
-
         float critRandom = UnityEngine.Random.value;
         float critChance = 0.1f;
         float critDamage = 2f;
@@ -76,8 +74,6 @@ public class StatSystem : MonoBehaviour
             damageDealt = attackStat / defence * damageValue;    
         }
 
-        Debug.Log(attackStat);
-
         healthPoints -= Mathf.RoundToInt(damageDealt);
 
         if (healthPoints <= 0)
@@ -85,8 +81,6 @@ public class StatSystem : MonoBehaviour
             healthPoints = 0;
             Death();
         }
-        Debug.Log( healthPoints);
-
     }
 
     public void Heal (int healAmount)
@@ -99,11 +93,15 @@ public class StatSystem : MonoBehaviour
         healthPoints = newHealtPoints;
     }
 
-    private void DoTDamage(DamageTypes damageType, float damageValue)
+    public void DoTDamage(DamageTypes damageType, float damageValue, float attackStat)
     {
         TypeSystem typeSystem = new();
         float multiplier = typeSystem.GetMultiplier(damageType, unitType);
-        int damageDealt = Mathf.RoundToInt(damageValue * multiplier);
+        damageValue *= multiplier;
+
+        int damageDealt = Mathf.RoundToInt( attackStat / Mathf.Max(magicDefence, defence) * damageValue);
+
+
 
         if (damageDealt >= healthPoints)
         {
@@ -275,5 +273,10 @@ public class StatSystem : MonoBehaviour
         BaseActionValueSetUp();
 
         actionValue = Mathf.RoundToInt(actionValue * ((float)baseActionValue / oldBaseActioValue));
+    }
+
+    public float GetBestAttack()
+    {
+        return Mathf.Max(attack, magicAttack);
     }
 }

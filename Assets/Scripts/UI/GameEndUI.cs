@@ -43,7 +43,6 @@ public class GameEndUI : MonoBehaviour
     {
         bool hasPlayerWon = GameEndSystem.Instance.DidPlayerWin();
 
-        Debug.Log(hasPlayerWon);
 
         if (hasPlayerWon)
         {

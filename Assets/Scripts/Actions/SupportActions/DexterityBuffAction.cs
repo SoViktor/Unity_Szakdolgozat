@@ -2,7 +2,7 @@ using System;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class DexterityBuff : BuffAction
+public class DexterityBuffAction : BuffAction
 {
     protected override StatTypes StatType => StatTypes.Dexterity;
 

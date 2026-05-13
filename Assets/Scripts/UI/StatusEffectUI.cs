@@ -17,7 +17,7 @@ public class StatusEffectUI : MonoBehaviour
         mainCamera = Camera.main;
     }
 
-    private void Start() 
+    private void OnEnable()
     {
         StatusEffects.OnAnyStatusEffectApplied += StatusEffects_OnAnyStatusEffectApplied;
         StatusEffects.OnAnyStatusEffectRemoved += StatusEffects_OnAnyStatusEffectRemoved;
@@ -58,6 +58,8 @@ public class StatusEffectUI : MonoBehaviour
     {
         if (e.unit == thisUnit)
         {
+            if (!isActiveAndEnabled) return;
+
             StartCoroutine(HandelStatusEffectIconRemoval());
         }
     }
@@ -74,11 +76,10 @@ public class StatusEffectUI : MonoBehaviour
         transform.forward = mainCamera.transform.forward;
     }
 
-    private void OnDestroy()
+    private void OnDisable()
     {
         StatusEffects.OnAnyStatusEffectApplied -= StatusEffects_OnAnyStatusEffectApplied;
         StatusEffects.OnAnyStatusEffectRemoved -= StatusEffects_OnAnyStatusEffectRemoved;
-
     }
 
 

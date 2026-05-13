@@ -72,6 +72,27 @@ MonoBehaviour:
     color: {r: 0.9395171, g: 0.9433962, b: 0.31594875, a: 1}
   - statTypes: 5
     color: {r: 0.03804734, g: 0.5377358, b: 0.09132154, a: 1}
+  damageTypesColors:
+  - damageType: 0
+    color: {r: 0.427451, g: 0.45882356, b: 0.4784314, a: 0}
+  - damageType: 1
+    color: {r: 0.13333334, g: 0.30980393, b: 0.043137256, a: 0}
+  - damageType: 2
+    color: {r: 0.8862746, g: 0.24313727, b: 0, a: 1}
+  - damageType: 3
+    color: {r: 0.24705884, g: 0.6901961, b: 0.7960785, a: 1}
+  - damageType: 4
+    color: {r: 0.6392157, g: 0.5019608, b: 0.47058827, a: 1}
+  - damageType: 5
+    color: {r: 1, g: 1, b: 1, a: 1}
+  - damageType: 6
+    color: {r: 0.47058827, g: 0.41960788, b: 0.78823537, a: 1}
+  - damageType: 7
+    color: {r: 0.019607844, g: 0.18039216, b: 0.30980393, a: 1}
+  - damageType: 8
+    color: {r: 0.90196085, g: 0.75294125, b: 0.5058824, a: 1}
+  - damageType: 9
+    color: {r: 0, g: 0, b: 0, a: 1}
   textMeshProUGUI: {fileID: 308947604269367770}
   background: {fileID: 7909929804134054463}
 --- !u!1 &3819911400607687097
@@ -109,7 +130,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0.2, y: 0.05}
+  m_SizeDelta: {x: 0.7, y: 0.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6866206361142418259
 CanvasRenderer:
@@ -166,8 +187,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.04
-  m_fontSizeBase: 0.04
+  m_fontSize: 0.1
+  m_fontSizeBase: 0.1
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

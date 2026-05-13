@@ -36,19 +36,16 @@ public abstract class StatusEffects : MonoBehaviour
         {
             if (duration <= 0)
             {
-                Debug.Log("duration <=0");
                 EndStatusEffect();
                 Destroy(this);
             }
             duration--;
             DoEffectOnEveryTurn();
-            Debug.Log(unit.GetStatSystem().GetAttack());
         }
     }
 
     protected void OnDestroy()
     {
-        Debug.Log("StatusEffect Destroyed");
         OnAnyStatusEffectRemoved?.Invoke(this, new EventArgsWithOneUnit{unit = unit});
         TurnSystem.Instance.OnTurnChanged -= TurnSystem_OnTurnChanged;
 

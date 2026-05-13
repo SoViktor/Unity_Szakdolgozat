@@ -8,7 +8,7 @@ public class AttackDebuffAction : DebuffAction
 
     protected override StatTypes StatType => StatTypes.Attack;
 
-    protected override string StatusName => "Attack Buff";
+    protected override string StatusName => "Attack Debuff";
 
     protected override float Amount => -20;
 

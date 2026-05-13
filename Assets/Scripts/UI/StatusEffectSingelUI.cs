@@ -15,8 +15,15 @@ public class StatusEffectSingelUI : MonoBehaviour
 
     }
 
-    [SerializeField] private List<StatTypesColors> statTypesColors;
+    [Serializable]
+    public struct DamageTypesColors
+    {
+        public DamageTypes damageType;
+        public Color color;
+    }
 
+    [SerializeField] private List<StatTypesColors> statTypesColors;
+    [SerializeField] private List<DamageTypesColors> damageTypesColors;
 
     [SerializeField] private TextMeshProUGUI textMeshProUGUI;
     [SerializeField] private Image background;
@@ -62,6 +69,12 @@ public class StatusEffectSingelUI : MonoBehaviour
                 background.color = GetBuffDebuffColors(statTypes);
 
                 break;
+                
+            case DoTEffects doTEffects:
+                DamageTypes damageType = doTEffects.GetDamageType();
+                background.color = GetDoTColor(damageType);
+
+                break;
 
             default:
                 break;
@@ -79,6 +92,19 @@ public class StatusEffectSingelUI : MonoBehaviour
             }
         }
         Debug.LogError("Color missing" + statType);
+        return Color.white;
+    }
+
+    private Color GetDoTColor(DamageTypes damageType)
+    {
+        foreach (DamageTypesColors item in damageTypesColors)
+        {
+            if (item.damageType == damageType)
+            {
+                return item.color;
+            }
+        }
+        Debug.LogError("Color missing" + damageType);
         return Color.white;
     }
 }
