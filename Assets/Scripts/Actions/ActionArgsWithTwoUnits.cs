@@ -2,6 +2,6 @@ using System;
 
 public class ActionArgsWithTwoUnits : EventArgs
 {
-    public Unit activeUnit;
-    public Unit targetUnit;
+    public Unit ActiveUnit {get; set;}
+    public Unit TargetUnit {get; set;}
 }

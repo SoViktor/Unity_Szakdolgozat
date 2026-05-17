@@ -24,7 +24,7 @@ public class ArrowShootAction : AttackAction
     protected override void DoAction()
     {
 
-        OnStartArrowShootAction?.Invoke(this, new ActionArgsWithTwoUnits {targetUnit = targetUnit, activeUnit = unit});
+        OnStartArrowShootAction?.Invoke(this, new ActionArgsWithTwoUnits {TargetUnit = targetUnit, ActiveUnit = unit});
 
         Attack();
     }

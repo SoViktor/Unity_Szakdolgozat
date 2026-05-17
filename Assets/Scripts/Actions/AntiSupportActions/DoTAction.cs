@@ -25,7 +25,7 @@ public abstract class DoTAction : AntiSupportAction
         DoTEffects doTEffect = targetUnit.AddComponent<DoTEffects>();
         SetBestAttack();
         doTEffect.SetUpDoT(DoTDamageType, Amount, bestAttack, Duration, StatusName);
-        OnDoTActionStarted?.Invoke(this, new ActionArgsWithTwoUnits{targetUnit = targetUnit, activeUnit = unit});
+        OnDoTActionStarted?.Invoke(this, new ActionArgsWithTwoUnits{TargetUnit = targetUnit, ActiveUnit = unit});
     }
 
     protected void SetBestAttack()

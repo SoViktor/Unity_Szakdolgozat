@@ -23,7 +23,7 @@ public abstract class DebuffAction : AntiSupportAction
     {
         BuffDebuffEffects debuffEffect = targetUnit.AddComponent<BuffDebuffEffects>();
         debuffEffect.SetUpBuffDebuffEffects(StatType, Amount, Duration, StatusName);
-        OnDebuffActionStarted?.Invoke(this, new ActionArgsWithTwoUnits{targetUnit = targetUnit, activeUnit = unit});
+        OnDebuffActionStarted?.Invoke(this, new ActionArgsWithTwoUnits{TargetUnit = targetUnit, ActiveUnit = unit});
     }
 
 }

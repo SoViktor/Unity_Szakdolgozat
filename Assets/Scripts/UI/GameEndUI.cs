@@ -20,6 +20,10 @@ public class GameEndUI : MonoBehaviour
         {
             ShowPlayerWinUI();
         }
+        if (Keyboard.current.escapeKey.IsPressed())
+        {
+            HideGameEndUI();
+        }
     }
 
     private void HideGameEndUI()

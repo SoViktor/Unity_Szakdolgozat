@@ -11,7 +11,11 @@ public class RagdollCreator : MonoBehaviour
     {
         statSystem = GetComponent<StatSystem>();
 
+    }
+    private void Start()
+    {
         statSystem.OnDeath += StatSystem_OnDeath;
+
     }
 
 

@@ -11,10 +11,10 @@ public class TurnSystem : MonoBehaviour
     public event EventHandler OnFinishedUpdateOnTurnOrder;
     private int turnNumber = 1;
 
-    private int actionValuePerTurn = 100;
+    private readonly int actionValuePerTurn = 100;
     private int actionValueUntilNextTurn = 100;
 
-    private List<Unit> unitList = new List<Unit>();
+    private List<Unit> unitList = new();
     private Unit activeUnit;
 
 
@@ -34,8 +34,7 @@ public class TurnSystem : MonoBehaviour
 
         foreach (GameObject item in gameObjects)
         {
-            Unit unit = item.GetComponent<Unit>();
-            if (unit != null)
+            if (item.TryGetComponent<Unit>(out var unit))
             {
                 unitList.Add(unit);
             }

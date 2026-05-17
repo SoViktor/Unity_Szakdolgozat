@@ -76,7 +76,7 @@ public class SummonAction : UnitTargetingAction
         Unit newUnit = Instantiate(summonedUnit, summonWorldPosition, Quaternion.identity);
         TurnSystem.Instance.AddUnitToTurnSystem(newUnit); 
 
-        OnNewUnitSummoned?.Invoke(this, new ActionArgsWithTwoUnits{targetUnit = newUnit, activeUnit = unit} );
+        OnNewUnitSummoned?.Invoke(this, new ActionArgsWithTwoUnits{TargetUnit = newUnit, ActiveUnit = unit} );
 
     }
 

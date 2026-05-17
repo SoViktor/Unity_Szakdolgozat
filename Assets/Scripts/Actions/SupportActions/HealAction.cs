@@ -19,7 +19,7 @@ public class HealAction : SupportAction
 
     protected override void DoAction()
     {
-        OnStartHeal?.Invoke(this, new ActionArgsWithTwoUnits {targetUnit = targetUnit, activeUnit = unit});
+        OnStartHeal?.Invoke(this, new ActionArgsWithTwoUnits {TargetUnit = targetUnit, ActiveUnit = unit});
         StatSystem targetUnitStateSystem = targetUnit.GetStatSystem();
         targetUnitStateSystem.Heal(healAmount);
     }

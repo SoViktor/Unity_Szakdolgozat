@@ -23,7 +23,7 @@ public abstract class BuffAction : SupportAction
     {
         BuffDebuffEffects buffEffect = targetUnit.AddComponent<BuffDebuffEffects>();
         buffEffect.SetUpBuffDebuffEffects(StatType, Amount, Duration, StatusName);
-        OnBuffActionStarted?.Invoke(this, new ActionArgsWithTwoUnits{targetUnit = targetUnit, activeUnit = unit});
+        OnBuffActionStarted?.Invoke(this, new ActionArgsWithTwoUnits{TargetUnit = targetUnit, ActiveUnit = unit});
     }
 
 

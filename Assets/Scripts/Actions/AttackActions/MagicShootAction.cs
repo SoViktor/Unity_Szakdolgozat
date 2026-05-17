@@ -23,7 +23,7 @@ public class MagicShootAction : AttackAction
 
     protected override void DoAction()
     {
-        OnStartMagicShootAction?.Invoke(this, new ActionArgsWithTwoUnits{targetUnit =targetUnit, activeUnit = unit});
+        OnStartMagicShootAction?.Invoke(this, new ActionArgsWithTwoUnits{TargetUnit =targetUnit, ActiveUnit = unit});
         Attack();
 
     }
