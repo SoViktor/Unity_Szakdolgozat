@@ -367,6 +367,18 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 2609979114305175692, guid: a8d9674eb2fcd244ea544c2c80a68870, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2609979114305175692, guid: a8d9674eb2fcd244ea544c2c80a68870, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 544f6ac2930f24145a9d0ffb5e7acc4f, type: 2}
+    - target: {fileID: 2609979114305175692, guid: a8d9674eb2fcd244ea544c2c80a68870, type: 3}
+      propertyPath: 'm_Materials.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 544f6ac2930f24145a9d0ffb5e7acc4f, type: 2}
     - target: {fileID: 3124106523181293095, guid: a8d9674eb2fcd244ea544c2c80a68870, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -686,6 +698,18 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6031012854187117108, guid: 6a33452aab7b66b4f9f7c14debf0d714, type: 3}
       insertIndex: -1
       addedObject: {fileID: -1006630655610396400}
+    - targetCorrespondingSourceObject: {fileID: 6031012854187117108, guid: 6a33452aab7b66b4f9f7c14debf0d714, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2586715945310004071}
+    - targetCorrespondingSourceObject: {fileID: 6031012854187117108, guid: 6a33452aab7b66b4f9f7c14debf0d714, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2691470286194136176}
+    - targetCorrespondingSourceObject: {fileID: 6031012854187117108, guid: 6a33452aab7b66b4f9f7c14debf0d714, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8726560392225144325}
+    - targetCorrespondingSourceObject: {fileID: 6031012854187117108, guid: 6a33452aab7b66b4f9f7c14debf0d714, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7230399069078750586}
   m_SourcePrefab: {fileID: 100100000, guid: 6a33452aab7b66b4f9f7c14debf0d714, type: 3}
 --- !u!4 &277755767057633740 stripped
 Transform:
@@ -771,6 +795,58 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d9cfec9b8b3a044da17ac842e11a8aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AttackBuffAction
+--- !u!114 &2586715945310004071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1458777600085568619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a8690bc6e050704e831a3b8f311e29a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SummonAction
+  summonedUnit: {fileID: 1595546417134996679, guid: cdf1a2ee469a8674083c7b0ff5cc987e, type: 3}
+--- !u!114 &2691470286194136176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1458777600085568619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a8690bc6e050704e831a3b8f311e29a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SummonAction
+  summonedUnit: {fileID: 8055857643410760447, guid: 6a33452aab7b66b4f9f7c14debf0d714, type: 3}
+--- !u!114 &8726560392225144325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1458777600085568619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a8690bc6e050704e831a3b8f311e29a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SummonAction
+  summonedUnit: {fileID: 1078091831497176342, guid: 57937e54f44a524408e5125f92c362cc, type: 3}
+--- !u!114 &7230399069078750586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1458777600085568619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a8690bc6e050704e831a3b8f311e29a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SummonAction
+  summonedUnit: {fileID: 2900546426370770080}
 --- !u!114 &2900546426370770080 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8055857643410760447, guid: 6a33452aab7b66b4f9f7c14debf0d714, type: 3}

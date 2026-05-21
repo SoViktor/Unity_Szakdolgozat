@@ -32,7 +32,7 @@ public class EnemyAI : MonoBehaviour
         timer -= Time.deltaTime;
         if (timer <= 0f)
         {
-            TurnSystem.Instance.Nextturn();
+            TurnSystem.Instance.NextTurn();
         }
 
     }

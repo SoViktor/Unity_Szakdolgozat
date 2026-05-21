@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class StatusEffectSingelUI : MonoBehaviour
+public class StatusEffectSingleUI : MonoBehaviour
 {
     [Serializable]
     public struct StatTypesColors

@@ -12,8 +12,7 @@ public class UnitRagdoll : MonoBehaviour
 
     private void MatchAllTransforms(Transform original, Transform copy)
     {
-        copy.localPosition = original.localPosition;
-        copy.localRotation = original.localRotation;
+        copy.SetLocalPositionAndRotation(original.localPosition, original.localRotation);
         copy.localScale = original.localScale;
 
         for (int i = 0; i < original.childCount; i++)

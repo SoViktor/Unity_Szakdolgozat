@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4377721785655977511}
   - component: {fileID: 5596811072483222200}
   m_Layer: 0
-  m_Name: GridSystemVisualSingelPrefab
+  m_Name: GridSystemVisualSinglePrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -8,7 +8,7 @@ public class DexterityBuffAction : BuffAction
 
     protected override string StatusName => "Dexteity Buff";
 
-    protected override float Amount =>1000;
+    protected override float Amount =>20;
 
     protected override int Duration =>1;
 

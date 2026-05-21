@@ -83,7 +83,6 @@ Assets/Scripts/
  FlyingArrow.cs
  GameEndSystem.cs
  Grid/
-  GridDebugObject.cs
   GridObject.cs
   GridPosition.cs
   GridSystem.cs

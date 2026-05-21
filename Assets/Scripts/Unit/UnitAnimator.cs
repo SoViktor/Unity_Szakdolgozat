@@ -55,6 +55,11 @@ public class UnitAnimator : MonoBehaviour
         {
             debuffAction.OnDebuffActionStarted += DebuffAction_OnDebuffActionStarted;
         }
+
+        if (TryGetComponent<DoTAction>(out DoTAction doTAction))
+        {
+            doTAction.OnDoTActionStarted += DoTAction_OnDoTActionStarted;
+        }
     }
     private void MoveAction_OnStartMoveAction(object sender, EventArgs e)
     {
@@ -103,7 +108,7 @@ public class UnitAnimator : MonoBehaviour
 
         Vector3 targetPosition = e.TargetUnit.GetWorldPosition();
 
-        targetPosition.y = shootStartPoint.position.y;
+        //targetPosition.y = shootStartPoint.position.y;
 
         Instantiate(summonVFX, targetPosition, Quaternion.identity);
 
@@ -141,6 +146,16 @@ public class UnitAnimator : MonoBehaviour
 
         Instantiate(summonVFX, targetPosition, Quaternion.identity);
     }
+
+    private void DoTAction_OnDoTActionStarted(object sender, ActionArgsWithTwoUnits e)
+    {
+        animator.SetTrigger(StartSlashHash);
+        Vector3 targetPosition = e.TargetUnit.GetWorldPosition();
+
+        targetPosition.y = shootStartPoint.position.y;
+
+        Instantiate(summonVFX, targetPosition, Quaternion.identity);
+    } 
 
     private void OnDestroy()
     {
@@ -184,6 +199,11 @@ public class UnitAnimator : MonoBehaviour
         if (TryGetComponent<DebuffAction>(out DebuffAction debuffAction))
         {
             debuffAction.OnDebuffActionStarted -= DebuffAction_OnDebuffActionStarted;
+        }
+
+        if (TryGetComponent<DoTAction>(out DoTAction doTAction))
+        {
+            doTAction.OnDoTActionStarted -= DoTAction_OnDoTActionStarted;
         }
     }
 

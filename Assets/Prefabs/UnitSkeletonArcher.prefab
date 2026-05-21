@@ -658,9 +658,12 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 6031012854187117108, guid: 6a33452aab7b66b4f9f7c14debf0d714, type: 3}
       insertIndex: 3
-      addedObject: {fileID: 4957286560929348808}
+      addedObject: {fileID: 2774583941286624361}
     - targetCorrespondingSourceObject: {fileID: 6031012854187117108, guid: 6a33452aab7b66b4f9f7c14debf0d714, type: 3}
       insertIndex: 4
+      addedObject: {fileID: 4957286560929348808}
+    - targetCorrespondingSourceObject: {fileID: 6031012854187117108, guid: 6a33452aab7b66b4f9f7c14debf0d714, type: 3}
+      insertIndex: 5
       addedObject: {fileID: 2743855222405116228}
     - targetCorrespondingSourceObject: {fileID: 6031012854187117108, guid: 6a33452aab7b66b4f9f7c14debf0d714, type: 3}
       insertIndex: -1
@@ -676,6 +679,18 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6031012854187117108, guid: 6a33452aab7b66b4f9f7c14debf0d714, type: 3}
   m_PrefabInstance: {fileID: 7005913369819387881}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2774583941286624361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3641291329568103901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d9b3e53e4b717747afd2cbf68e08f54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FireDoTAction
 --- !u!114 &4957286560929348808
 MonoBehaviour:
   m_ObjectHideFlags: 0

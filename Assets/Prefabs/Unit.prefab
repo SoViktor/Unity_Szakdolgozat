@@ -366,6 +366,7 @@ GameObject:
   - component: {fileID: 6372913358275944627}
   - component: {fileID: 2430686426667159005}
   - component: {fileID: 1985647990510708375}
+  - component: {fileID: 653523153195602403}
   - component: {fileID: 8091376678976239172}
   m_Layer: 7
   m_Name: Unit
@@ -491,6 +492,19 @@ MonoBehaviour:
   baseMagicAttack: 100
   baseDexterity: 100
   baseMoveRange: 5
+--- !u!114 &653523153195602403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6031012854187117108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41d0fca24ce31fc43b990f4c71b592d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HealAction
+  healAmount: 30
 --- !u!114 &8091376678976239172
 MonoBehaviour:
   m_ObjectHideFlags: 0

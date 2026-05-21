@@ -7,6 +7,8 @@ public class MoveAction : BaseAction
     [SerializeField] private float moveSpeed;
     [SerializeField] private float rotationSpeed;
 
+    private readonly float stoppingDistance = 0.1f;
+
     public event EventHandler OnStartMoveAction;
     public event EventHandler OnStopMoveAction;
 
@@ -30,7 +32,6 @@ public class MoveAction : BaseAction
         {
             return;
         }
-        float stoppingDistance = 0.1f;
         Vector3 moveDirection = (targetPosition - transform.position).normalized;
         if (Vector3.Distance(transform.position, targetPosition) > stoppingDistance)
         {

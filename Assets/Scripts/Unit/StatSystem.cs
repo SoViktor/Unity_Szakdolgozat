@@ -29,6 +29,8 @@ public class StatSystem : MonoBehaviour
     private int actionValue;
     private float baseRandom;
 
+    private readonly TypeSystem typeSystem = new();
+
 
     private void Awake()
     {
@@ -48,7 +50,6 @@ public class StatSystem : MonoBehaviour
 
     public void Damage(bool isMagical, DamageTypes damageType, float damageValue, float attackStat)
     {
-        TypeSystem typeSystem = new();
         float multiplier = typeSystem.GetMultiplier(damageType, unitType);
         damageValue *= multiplier;
 
@@ -105,7 +106,7 @@ public class StatSystem : MonoBehaviour
 
         if (damageDealt >= healthPoints)
         {
-            StartCoroutine(HandelDotDeath());
+            StartCoroutine(HandleDotDeath());
         }
         else
         {
@@ -113,9 +114,9 @@ public class StatSystem : MonoBehaviour
         }
     }
 
-    private IEnumerator HandelDotDeath()
+    private IEnumerator HandleDotDeath()
     {
-        TurnSystem.Instance.Nextturn();
+        TurnSystem.Instance.NextTurn();
 
         yield return _waitForSeconds0_05;
 

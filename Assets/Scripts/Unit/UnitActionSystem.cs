@@ -48,11 +48,11 @@ public class UnitActionSystem : MonoBehaviour
             return;
         }
 
-        HandelSelectedAction();
+        HandleSelectedAction();
 
     }
 
-    private void HandelSelectedAction()
+    private void HandleSelectedAction()
     {
         if (Mouse.current.leftButton.IsPressed())
         {

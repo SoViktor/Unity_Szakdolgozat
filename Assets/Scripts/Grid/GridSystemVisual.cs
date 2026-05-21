@@ -38,7 +38,7 @@ public class GridSystemVisual : MonoBehaviour
         {
             for (int z = 0; z < LevelGrid.Instance.GetLength(); z++)
             {
-                GridPosition gridPosition = new GridPosition(x,z);
+                GridPosition gridPosition = new(x,z);
                 Transform gridSystemVisualSingelTransform = 
                     Instantiate(gridSystemVisualSingleGrid, LevelGrid.Instance.GetWorldPosition(gridPosition), Quaternion.identity);
                 gridSystemVisualSingelArray[x,z] = gridSystemVisualSingelTransform.GetComponent<GridSystemVisualSingel>();
@@ -73,13 +73,13 @@ public class GridSystemVisual : MonoBehaviour
 
     private void ShowRange(GridPosition unitGridPosition, int range, bool isCirculiar, GridVisualVariants gridVisualVariant)
     {
-        List<GridPosition> validGridPositionList = new List<GridPosition>();
+        List<GridPosition> validGridPositionList = new();
 
         for (int x = -range; x <= range; x++)
         {
             for (int z = -range; z <= range; z++)
             {
-                GridPosition offsetGridPosition = new GridPosition (x,z);
+                GridPosition offsetGridPosition = new(x,z);
                 GridPosition testGridPosition = unitGridPosition + offsetGridPosition;
 
                 if(!LevelGrid.Instance.IsValidPosition(testGridPosition))

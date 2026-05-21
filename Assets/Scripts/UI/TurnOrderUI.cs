@@ -5,7 +5,7 @@ using UnityEngine;
 public class TurnOrderUI : MonoBehaviour
 {
     [SerializeField] private Transform container;
-    [SerializeField] private Transform singelTurnOrderTransform;
+    [SerializeField] private Transform singleTurnOrderTransform;
     [SerializeField]private int MaxShowedUnits = 7;
 
     private void Start()
@@ -54,7 +54,7 @@ public class TurnOrderUI : MonoBehaviour
                 {
                     break;
                 }
-                Transform turnOrderTransform = Instantiate(singelTurnOrderTransform, container);
+                Transform turnOrderTransform = Instantiate(singleTurnOrderTransform, container);
 
                 turnOrderTransform.gameObject.SetActive(true);
 

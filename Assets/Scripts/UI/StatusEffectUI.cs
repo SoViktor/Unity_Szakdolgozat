@@ -36,11 +36,11 @@ public class StatusEffectUI : MonoBehaviour
 
         foreach (StatusEffects item in thisUnit.GetComponents<StatusEffects>())
         {
-            Transform statusEffectSingelTransform = Instantiate(statusEffectIcon, container);
+            Transform statusEffectSingleTransform = Instantiate(statusEffectIcon, container);
 
-            StatusEffectSingelUI statusEffectSingelUI = statusEffectSingelTransform.GetComponent<StatusEffectSingelUI>();
+            StatusEffectSingleUI statusEffectSingleUI = statusEffectSingleTransform.GetComponent<StatusEffectSingleUI>();
 
-            statusEffectSingelUI.SetUp(item);
+            statusEffectSingleUI.SetUp(item);
             
         }
         
@@ -60,11 +60,11 @@ public class StatusEffectUI : MonoBehaviour
         {
             if (!isActiveAndEnabled) return;
 
-            StartCoroutine(HandelStatusEffectIconRemoval());
+            StartCoroutine(HandleStatusEffectIconRemoval());
         }
     }
 
-    private IEnumerator HandelStatusEffectIconRemoval()
+    private IEnumerator HandleStatusEffectIconRemoval()
     {
         yield return _waitForSeconds0_05;
         UpdateVisual();

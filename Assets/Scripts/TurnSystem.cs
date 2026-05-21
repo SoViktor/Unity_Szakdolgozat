@@ -43,7 +43,7 @@ public class TurnSystem : MonoBehaviour
         Unit.OnAnyUnitDied += Unit_OnAnyUnitDied;
         FindNextActiveUnit();
     }
-    public void Nextturn()
+    public void NextTurn()
     {
         if (activeUnit != null)
         {
