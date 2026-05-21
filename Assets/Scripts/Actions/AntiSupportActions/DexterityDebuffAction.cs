@@ -4,7 +4,7 @@ public class DexterityDebuffAction : DebuffAction
 {
     protected override StatTypes StatType => StatTypes.Dexterity;
 
-    protected override string StatusName => "Dexteity Debuff";
+    protected override string StatusName => "Dexterity Debuff";
 
     protected override float Amount =>-1000f;
 
