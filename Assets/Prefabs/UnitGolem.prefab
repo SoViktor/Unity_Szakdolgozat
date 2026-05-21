@@ -531,6 +531,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1611173648039116592, guid: 6a33452aab7b66b4f9f7c14debf0d714, type: 3}
+      propertyPath: summonedUnit
+      value: 
+      objectReference: {fileID: 8055857643410760447, guid: 6a33452aab7b66b4f9f7c14debf0d714, type: 3}
     - target: {fileID: 1985647990510708375, guid: 6a33452aab7b66b4f9f7c14debf0d714, type: 3}
       propertyPath: unitType
       value: 8
@@ -626,21 +630,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6031012854187117108, guid: 6a33452aab7b66b4f9f7c14debf0d714, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2510776869491395563}
-    - targetCorrespondingSourceObject: {fileID: 6031012854187117108, guid: 6a33452aab7b66b4f9f7c14debf0d714, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2629739747704440968}
   m_SourcePrefab: {fileID: 100100000, guid: 6a33452aab7b66b4f9f7c14debf0d714, type: 3}
---- !u!114 &1595546417134996679 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8055857643410760447, guid: 6a33452aab7b66b4f9f7c14debf0d714, type: 3}
-  m_PrefabInstance: {fileID: 8784450134859034168}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3051985789098714124}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ff0de0678f7cf541a3b7c779bb92895, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Unit
 --- !u!1 &3051985789098714124 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6031012854187117108, guid: 6a33452aab7b66b4f9f7c14debf0d714, type: 3}
@@ -658,19 +648,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 463e56d0dbf3085458a03703510ae017, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DarknessDoTAction
---- !u!114 &2629739747704440968
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3051985789098714124}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a8690bc6e050704e831a3b8f311e29a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SummonAction
-  summonedUnit: {fileID: 1595546417134996679}
 --- !u!4 &4449138609444362667 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4924159686163281811, guid: 6a33452aab7b66b4f9f7c14debf0d714, type: 3}

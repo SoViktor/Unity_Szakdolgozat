@@ -108,7 +108,7 @@ public class UnitAnimator : MonoBehaviour
 
         Vector3 targetPosition = e.TargetUnit.GetWorldPosition();
 
-        //targetPosition.y = shootStartPoint.position.y;
+        targetPosition.y = shootStartPoint.position.y;
 
         Instantiate(summonVFX, targetPosition, Quaternion.identity);
 

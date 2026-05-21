@@ -16,11 +16,11 @@ public class GameEndUI : MonoBehaviour
 
     private void Update()
     {
-        if (Keyboard.current.tKey.IsPressed())
+        if (Keyboard.current.enterKey.IsPressed())
         {
             ShowPlayerWinUI();
         }
-        if (Keyboard.current.escapeKey.IsPressed())
+        if (Keyboard.current.enterKey.IsPressed())
         {
             HideGameEndUI();
         }

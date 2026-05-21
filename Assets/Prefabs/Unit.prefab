@@ -368,6 +368,7 @@ GameObject:
   - component: {fileID: 1985647990510708375}
   - component: {fileID: 653523153195602403}
   - component: {fileID: 8091376678976239172}
+  - component: {fileID: 1611173648039116592}
   m_Layer: 7
   m_Name: Unit
   m_TagString: Unit
@@ -519,6 +520,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RagdollSpanner
   ragdollPrefab: {fileID: 4924159686163281811, guid: 5110c6dd6e6023b429bade01e34380f9, type: 3}
   unitRootSkeleton: {fileID: 7048937579174016007}
+--- !u!114 &1611173648039116592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6031012854187117108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a8690bc6e050704e831a3b8f311e29a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SummonAction
+  summonedUnit: {fileID: 1078091831497176342, guid: 57937e54f44a524408e5125f92c362cc, type: 3}
 --- !u!1 &6121347354404628284
 GameObject:
   m_ObjectHideFlags: 0

@@ -596,6 +596,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1611173648039116592, guid: 6a33452aab7b66b4f9f7c14debf0d714, type: 3}
+      propertyPath: summonedUnit
+      value: 
+      objectReference: {fileID: 1595546417134996679, guid: cdf1a2ee469a8674083c7b0ff5cc987e, type: 3}
     - target: {fileID: 1985647990510708375, guid: 6a33452aab7b66b4f9f7c14debf0d714, type: 3}
       propertyPath: unitType
       value: 4
@@ -682,9 +686,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 6031012854187117108, guid: 6a33452aab7b66b4f9f7c14debf0d714, type: 3}
       insertIndex: 6
-      addedObject: {fileID: 3799490666491163740}
-    - targetCorrespondingSourceObject: {fileID: 6031012854187117108, guid: 6a33452aab7b66b4f9f7c14debf0d714, type: 3}
-      insertIndex: 7
       addedObject: {fileID: 7783821402109519661}
     - targetCorrespondingSourceObject: {fileID: 6031012854187117108, guid: 6a33452aab7b66b4f9f7c14debf0d714, type: 3}
       insertIndex: -1
@@ -698,18 +699,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6031012854187117108, guid: 6a33452aab7b66b4f9f7c14debf0d714, type: 3}
       insertIndex: -1
       addedObject: {fileID: -1006630655610396400}
-    - targetCorrespondingSourceObject: {fileID: 6031012854187117108, guid: 6a33452aab7b66b4f9f7c14debf0d714, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2586715945310004071}
-    - targetCorrespondingSourceObject: {fileID: 6031012854187117108, guid: 6a33452aab7b66b4f9f7c14debf0d714, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2691470286194136176}
-    - targetCorrespondingSourceObject: {fileID: 6031012854187117108, guid: 6a33452aab7b66b4f9f7c14debf0d714, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8726560392225144325}
-    - targetCorrespondingSourceObject: {fileID: 6031012854187117108, guid: 6a33452aab7b66b4f9f7c14debf0d714, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 7230399069078750586}
   m_SourcePrefab: {fileID: 100100000, guid: 6a33452aab7b66b4f9f7c14debf0d714, type: 3}
 --- !u!4 &277755767057633740 stripped
 Transform:
@@ -721,19 +710,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6031012854187117108, guid: 6a33452aab7b66b4f9f7c14debf0d714, type: 3}
   m_PrefabInstance: {fileID: 5155751048610506335}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3799490666491163740
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1458777600085568619}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a8690bc6e050704e831a3b8f311e29a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SummonAction
-  summonedUnit: {fileID: 2900546426370770080}
 --- !u!114 &7783821402109519661
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -795,66 +771,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d9cfec9b8b3a044da17ac842e11a8aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AttackBuffAction
---- !u!114 &2586715945310004071
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1458777600085568619}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a8690bc6e050704e831a3b8f311e29a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SummonAction
-  summonedUnit: {fileID: 1595546417134996679, guid: cdf1a2ee469a8674083c7b0ff5cc987e, type: 3}
---- !u!114 &2691470286194136176
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1458777600085568619}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a8690bc6e050704e831a3b8f311e29a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SummonAction
-  summonedUnit: {fileID: 8055857643410760447, guid: 6a33452aab7b66b4f9f7c14debf0d714, type: 3}
---- !u!114 &8726560392225144325
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1458777600085568619}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a8690bc6e050704e831a3b8f311e29a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SummonAction
-  summonedUnit: {fileID: 1078091831497176342, guid: 57937e54f44a524408e5125f92c362cc, type: 3}
---- !u!114 &7230399069078750586
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1458777600085568619}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a8690bc6e050704e831a3b8f311e29a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SummonAction
-  summonedUnit: {fileID: 2900546426370770080}
---- !u!114 &2900546426370770080 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8055857643410760447, guid: 6a33452aab7b66b4f9f7c14debf0d714, type: 3}
-  m_PrefabInstance: {fileID: 5155751048610506335}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1458777600085568619}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ff0de0678f7cf541a3b7c779bb92895, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Unit
